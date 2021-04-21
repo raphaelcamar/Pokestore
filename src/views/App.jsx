@@ -9,60 +9,62 @@ import {createObjectPokemon} from '../helpers/Helpers';
 import {ThemeProvider} from 'styled-components';
 import fire from '../styles/themes/fire';
 import water from '../styles/themes/water';
-import GlobalStyle from '../styles/global'
+import GlobalStyle from '../styles/global';
+import {changeContext} from '../store/cart/actions/index';
+import {useDispatch} from 'react-redux';
 
-
-import {AppDiv, Container, WrapperContainer, Padding, Cards, CartBody} from './styles'
+import {AppDiv, Container, WrapperContainer, Cards, CartBody} from './styles'
 
 const App = props => {
 
     const [data, setData ] = useState([]);
-
-    // const theme = JSON.parse(sessionStorage.getItem(`@type`))
-
-    const [theme, setTheme] = useState(fire);
+    const th = JSON.parse(sessionStorage.getItem('@theme')) || fire
+    const [theme, setTheme] = useState(th);
     const [initialData, setinitialData] = useState([]);
+
+    const dispatch = useDispatch();
+
+    sessionStorage.setItem(`@theme`, JSON.stringify(theme));
+    dispatch(changeContext(theme.title))
 
     const arrPokemon = [];
 
-    useEffect(() => {
-        
+    useEffect(function(){
         fetchItems();
-
-    }, [])
-
-    const openCart = () =>{
-        document.querySelector('.cart-body').classList.remove('cart-body')
-        document.querySelector('.cart-body').classList.add('cart-body-open')
-    }
+    }, [theme])
 
     const catchStore = (type) =>{
-        setTheme(water)
-        // fetchItems();
+
+        if(type === 'water') setTheme(water);
+        if(type === 'fire') setTheme(fire);
+
+        
+        setData([]);
     }
 
+
+
     async function fetchItems(){
+
         const urlPokemon = await fetchPokemonType(theme.title);
 
         for (let i = 0; i < urlPokemon.length; i++) {
-            const { url } = urlPokemon[i].pokemon
+            const { url } = urlPokemon[i].pokemon;
             const data = await fetchPokemons(url);
-            const objPokemon = createObjectPokemon(data, i);
-            arrPokemon.push(objPokemon)
+            const objPokemon = createObjectPokemon(data, theme.title);
+            arrPokemon.push(objPokemon);
         }
         setinitialData(arrPokemon);
         setData(arrPokemon);
     }
-    useEffect(() =>{
-
-    }, [])
 
     function renderCards(){
-
-
+        if(data.length <= 0){
+            return <div>Loader</div>
+        }
         return data.map(item => {
             return <Card key={item.idPokemon} item={item} setStorage={()=>{}}/>
-        })
+        });
     }
 
     const searchPokemon = (value) =>{
@@ -79,7 +81,7 @@ const App = props => {
        <ThemeProvider theme={theme}>
            <GlobalStyle/>
             <AppDiv>
-                <Header open={openCart} catchStore={catchStore}/>
+                <Header  catchStore={catchStore}/>
                 <Container>
                     <WrapperContainer>
                             <Input placeholder="Ex: Pikachu" label="Pesquise um pokemón" searchPokemon={searchPokemon}/>

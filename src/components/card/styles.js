@@ -22,12 +22,12 @@ export const HeaderCard = styled.div `
 export const CardButton = styled.button`
     outline: none;
     border: 1px solid ${props => props.theme.colors.secundary};
-    width: 70%;
+    width: 100%;
     padding: 10px;
     font-weight: 500;
     font-size: 1.25rem;
     color: ${props => props.theme.colors.primary};
-    margin : 8px 0 !important;
+    margin : 8px 16px !important;
     border-radius : 10px;
     background : #FFF;
     &:hover{

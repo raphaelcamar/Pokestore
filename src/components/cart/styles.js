@@ -60,6 +60,9 @@ export const TotalPrice = styled.div`
     font-weight: bold;
     font-size: 1.25rem;
     color: ${props => props.theme.colors.secundaryColorFont};
+    span{
+        font-weight : 700
+    }
 `
 export const ButtonCart = styled.button`
     width: 100%;
