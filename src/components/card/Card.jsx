@@ -9,7 +9,9 @@ const Card = props => {
     const { item } = props
     const { name, photo, stats, price } = item
     
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
+    const {title} = JSON.parse(sessionStorage.getItem('@theme'));
 
 
     const drawStats = () =>{
@@ -35,7 +37,7 @@ const Card = props => {
     return (
         <Container>
             <HeaderCard>
-                <svg xmlns="http://www.w3.org/2000/svg" width="27" height="36" viewBox="0 0 27 36"><path d="M15.188,1.678a1.691,1.691,0,0,0-3.1-.917C3.375,13.489,15.75,14.063,15.75,20.25a4.5,4.5,0,1,1-9-.067V14.171a1.688,1.688,0,0,0-2.913-1.16A14.059,14.059,0,0,0,0,22.5a13.5,13.5,0,0,0,27,0C27,10.526,15.188,8.93,15.188,1.678Z" transform="translate(0 0)" fill="#f58e99"/></svg>
+                {catchSVG(title)}
                 <Price>R$: {price}</Price>
             </HeaderCard>
             <WrapperPhoto>

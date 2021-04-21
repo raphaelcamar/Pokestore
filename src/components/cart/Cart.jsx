@@ -13,7 +13,8 @@ const Cart = props => {
     const [price, setPrice] = useState(0)
 
     const clearCart = () =>{
-        dispatch(clear())
+        const type = cart[0].type
+        dispatch(clear(type))
     }
 
     const addPrice = (price) =>{
@@ -35,7 +36,7 @@ const Cart = props => {
     }
 
     const buy = () =>{
-        sessionStorage.setItem('buyed', JSON.stringify(cart));
+        sessionStorage.setItem(`@purchased-${cart[0].type}`, JSON.stringify(cart));
     }
 
     useEffect(() =>{
@@ -56,7 +57,7 @@ const Cart = props => {
                         return <CardCart pokemon={pokemon} key={pokemon.idPokemon} changeAmount={changeAmount} remove={remove}/>})}
                     <TotalPrice>
                         <span>Total</span>
-                        <span className="price">R$ {calcTotalPrice()}</span>
+                        <span>R$ {calcTotalPrice()}</span>
                     </TotalPrice>
                     <ButtonCart onClick={() =>{buy()}}>Comprar</ButtonCart>
                 </>

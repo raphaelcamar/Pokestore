@@ -20,9 +20,23 @@ export const qtdPokemon = (idPokemon, value) =>{
     }
 }
 
-export const clear = () =>{
+export const clear = (store) =>{
     return {
         type : 'CLEAR_POKEMON',
-        pokemon : []
+        pokemon : [],
+        store
+    }
+}
+
+export const changeContext = (store) =>{
+    return {
+        type : 'CHANGE_CONTEXT',
+        store
+    }
+}
+
+export const buyPokemons = () =>{
+    return {
+        type : 'BUY_POKEMON',
     }
 }
