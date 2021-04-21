@@ -1,0 +1,11 @@
+.Status{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+span{
+    font-weight: 300;
+}
+svg{
+    margin-right: 8px;
+}

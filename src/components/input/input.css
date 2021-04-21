@@ -1,0 +1,29 @@
+.Input{
+    display: flex;
+    flex-direction: column;  
+}
+.Input input{
+    outline: none;
+    padding: 12px 2px;
+    border : none;
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2.08rem;
+    border-radius: 5px;
+}
+.Input input::placeholder{
+    color: #C5C5C5;
+}
+.Input input:focus{
+    border: 1px solid rgb(44, 134, 236);
+}
+.Input input:hover{
+    outline: none;
+}
+.Input label{
+    color: var(--primary-color-font);
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding-bottom: 1.08rem;
+    padding-top: 1.08rem;
+}

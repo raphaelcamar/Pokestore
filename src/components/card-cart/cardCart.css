@@ -1,0 +1,59 @@
+.CartCard{
+    background: #FBFBFB !important;
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 16px;
+}
+.CartCard .container-cartCard img{
+    width: 40px;
+    height: 40px;
+}
+.CartCard .container-cartCard{
+    padding: 8px 16px ;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.CartCard .infos{
+    display: flex;
+    align-items: center;
+}
+.CartCard .name{
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #616161;
+}
+.CartCard .infos img{
+    margin-right: 8px;
+}
+.CartCard .qtd span{
+    margin-right: 8px;
+}
+.CartCard input{
+    outline: none;
+    padding: 8px 2px;
+    border : none;
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+}
+.CartCard input::placeholder{
+    color: #C5C5C5;
+}
+input:focus{
+    border: 1px solid rgb(44, 134, 236);
+}
+.CartCard input:hover{
+    outline: none;
+}
+.CartCard .qtd{
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+}
+.CartCard .remove{
+    color: #CBCBCB;
+}
+.CartCard .remove:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
