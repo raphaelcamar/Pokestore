@@ -1,7 +1,7 @@
 {
   "name": "pokestore",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@reduxjs/toolkit": "^1.5.1",
