@@ -10,7 +10,14 @@ export const Container = styled.div `
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
-    /* padding-top : ${props => props.theme.marginTop} + 'px' */
+
+    .show{
+        left : 0 !important;
+        transition : left ease 0.2s;
+    }
+    .hide{
+        transition : left ease 0.2s;
+    }
 `
 
 export const WrapperContainer = styled.div`
@@ -18,7 +25,6 @@ export const WrapperContainer = styled.div`
 	padding: 0 1.08rem;
 
     @media(min-width : 1000px){
-
         width: 65%;
 		padding: 0 1.08rem;
 }
@@ -35,14 +41,14 @@ export const Cards = styled.div`
 `
 
 export const CartBody = styled.div`
-    /* display : none; */
-    position: absolute;
+    position: fixed;
     left : -100%;
-    height : 100vh;
+    top : 160px;
     width : 100%;
+    height : 100%;
     @media(min-width : 1000px){
         width: 35%;
-		/* display: contents; */
         position : initial;
 }
+
 `

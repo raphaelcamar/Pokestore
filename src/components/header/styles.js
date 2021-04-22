@@ -28,12 +28,3 @@ export const Container = styled.div `
         position : initial;
 }
 `
-
-export const HeaderCart = styled.div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    @media(min-width : 1000px){
-        display: none;
-}
-`

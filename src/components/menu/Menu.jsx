@@ -29,13 +29,13 @@ const Menu = props =>{
               </div>  
         </div>
         <div className={`options ${open}`}>
-          <div className="option">
-              {catchSVG('water')}
-              <span onClick={() => {
+          <div className="option" onClick={() => {
                 setStore('water')
                 props.click('water')
                 
-                }}>Loja de água</span>
+                }}>
+              {catchSVG('water')}
+              <span>Loja de água</span>
           </div>
         </div>
       </ContainerSelected>
@@ -52,12 +52,12 @@ const Menu = props =>{
               </div>  
         </div>
         <div className={`options ${open}`}>
-          <div className="option">
-              {catchSVG('fire')}
-              <span onClick={() =>{
+          <div className="option" onClick={() =>{
                 setStore('fire')
                 props.click('fire')
-                }}>Loja de fogo</span>
+                }}>
+              {catchSVG('fire')}
+              <span >Loja de fogo</span>
           </div>
         </div>
       </ContainerSelected>

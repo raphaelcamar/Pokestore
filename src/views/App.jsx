@@ -4,7 +4,6 @@ import Cart from '../components/cart/Cart';
 import Modal from '../components/modal/Modal';
 import Header from '../components/header/Header';
 import Input from '../components/input/Input'
-// import './app.css';
 import {fetchPokemonType, fetchPokemons} from '../api/Api';
 import {createObjectPokemon} from '../helpers/Helpers';
 import {ThemeProvider} from 'styled-components';
@@ -19,7 +18,8 @@ import {
     Switch,
     Route,
   } from "react-router-dom";
-import Purchased from '../components/purchased/Purchased'
+import Purchased from '../components/purchased/Purchased';
+import Tooltip from '../components/tooltip/Tooltip'
 
 const App = (_) => {
 
@@ -27,6 +27,7 @@ const App = (_) => {
     const th = JSON.parse(sessionStorage.getItem('@theme')) || fire
     const [theme, setTheme] = useState(th);
     const [initialData, setinitialData] = useState([]);
+    const [showCart, setShowCart] = useState('hide')
 
     const dispatch = useDispatch();
 
@@ -44,7 +45,6 @@ const App = (_) => {
         if(type === 'water') setTheme(water);
         if(type === 'fire') setTheme(fire);
 
-        
         setData([]);
     }
 
@@ -81,21 +81,9 @@ const App = (_) => {
         setData(pokemonsFiltered)
     }
 
-    const showCart = (cartState) =>{
-        console.log(cartState)
-        if(cartState == true){
-            return (
-                <>
-                <p>Mostra o carrinho!!</p>
-                </>
-            )
-        }else{
-           return (
-            <>
-            <p>Não mostra o carrinho!!</p>
-            </>
-           )
-        }
+    const show = () =>{
+        if(showCart == 'show')setShowCart('hide');
+        if(showCart == 'hide')setShowCart('show');
     }
 
     return (
@@ -103,20 +91,20 @@ const App = (_) => {
            <GlobalStyle/>
             <AppDiv>
             <Router>
-            
-                <Header catchStore={catchStore} showCart={showCart}/>
+            <Tooltip click={show}/>
+                <Header catchStore={catchStore}/>
                     <Switch>
                         <Route path={'/store', '/'} exact>
                             <Container>
                                 <WrapperContainer>
-                                    {showCart()}
+                                    {/* {showCart()} */}
                                         <Input placeholder="Ex: Pikachu" label="Pesquise um pokemón" searchPokemon={searchPokemon}/>
                                     <Cards>
                                             {renderCards()}
                                     </Cards>
                                 </WrapperContainer>
-                                <CartBody>
-                                    <Cart />
+                                <CartBody className={showCart}>
+                                    <Cart/>
                                 </CartBody>
                             </Container>
                         </Route>
