@@ -11,7 +11,7 @@ export const ContainerSelected = styled.div`
     padding:  8px 20px;
     color: black;
     cursor: pointer;
-    width: 150px;
+    width: 170px;
 }
 .container-open{
     border-radius: 25px 25px 0 0;
@@ -41,15 +41,16 @@ svg{
     padding:  8px 20px;
     color: black;
     transition: transform ease 0.1s;
-    width: 150px;
+    width: 170px;
+    box-shadow : var(--box-shadow);
 }
-.option{
+.option span{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 4px 0;
 }
-.options:hover{
+.option:hover{
     background: #e9e9e9;
     cursor: pointer;
 }

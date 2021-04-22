@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import {Container, WrapperContainer, Cards, CartBody, WrapperLoader} from './styles';
 import Input from '../../components/input/Input';
 import { createObjectPokemon, filterPokemon } from '../../helpers/Helpers';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 import Cart from '../../components/cart/Cart';
 import Card from '../../components/card/Card';
 import { fetchPokemonType, getPokemons } from '../../api/Api';
@@ -40,8 +42,7 @@ const Main = props =>{
         if(data.length <= 0){
             return (
                 <WrapperLoader>
-                    {/* <Loader type="Puff" color={colors.primary} height={100} width={100}/> */}
-                    Loader
+                    <Loader type="Puff" color={colors.primary} height={100} width={100}/>
                 </WrapperLoader>
             )
         }

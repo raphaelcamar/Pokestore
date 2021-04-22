@@ -38,12 +38,12 @@ export default function reducerCart(state = INITIAL_STATE, action){
         return saveInSession([], action.store);
     }
     if(type === 'ADD_SUBTRACT'){
-        const pokemons = state.map(item => {
-            if(item.idPokemon === action.idPokemon){
-                 item.qtd = +action.value
-                 item.currentPrice = (item.qtd * item.price).toFixed(2)
+        const pokemons = state.map(pokemon => {
+            if(pokemon.idPokemon === action.idPokemon){
+                 pokemon.qtd = +action.value
+                 pokemon.currentPrice = (pokemon.qtd * pokemon.price).toFixed(2)
             }
-            return item
+            return pokemon
         });
          
         return saveInSession(pokemons, pokemons[0].type);

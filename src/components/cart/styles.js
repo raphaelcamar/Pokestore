@@ -10,6 +10,15 @@ export const Container = styled.div`
     max-height: 70vh;
     overflow: auto;
     overflow-x : hidden;
+    &::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+   &::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background:${props => props.theme.colors.primary};
+}
 `
 
 export const HeaderCart = styled.div`

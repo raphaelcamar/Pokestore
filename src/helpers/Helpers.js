@@ -1,4 +1,4 @@
-import {hp, attack, defense, speed, fire, water, cart} from '../assets/svg'
+import {hp, attack, defense, speed, fire, water, cart, poison, bug} from '../assets/svg'
 
 export const createObjectPokemon = (pokemon, type) =>{
     const { forms, sprites, stats, id } = pokemon
@@ -27,7 +27,9 @@ export const catchSVG = (typeSVG) => {
         speed,
         fire,
         water,
-        cart
+        cart,
+        poison,
+        bug
     }
     
     return svgs[typeSVG]

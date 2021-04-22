@@ -6,6 +6,7 @@ export const Container = styled.aside `
     -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
     margin-bottom: 16px;
+    text-transform: capitalize;
 `
 
 export const WrapperCard = styled.div`
@@ -36,6 +37,7 @@ export const SpanQtd = styled.span`
 
     span{
         margin-right: 8px;
+        
     }
 
     input{

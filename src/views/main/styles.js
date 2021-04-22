@@ -22,11 +22,10 @@ export const Container = styled.div `
 
 export const WrapperContainer = styled.div`
     width: 100%;
-	padding: 0 1.08rem;
 
     @media(min-width : 1000px){
         width: 65%;
-		padding: 0 1.08rem;
+		padding: 0 1.08rem 0 0;
 }
 `
 
