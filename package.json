@@ -1,7 +1,7 @@
 {
   "name": "pokestore",
   "version": "0.1.0",
-  "private": false,
+  "license": "UNLICENSED",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@reduxjs/toolkit": "^1.5.1",
@@ -12,7 +12,6 @@
     "rand-token": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-loader-spinner": "^4.0.0",
     "react-modal": "^3.13.1",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",

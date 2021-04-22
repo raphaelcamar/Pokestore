@@ -31,8 +31,8 @@ const App = (_) => {
     }
 
     const show = () =>{
-        if(showCart == 'show')setShowCart('hide');
-        if(showCart == 'hide')setShowCart('show');
+        if(showCart === 'show')setShowCart('hide');
+        if(showCart === 'hide')setShowCart('show');
     }
 
     return (
