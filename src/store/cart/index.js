@@ -49,6 +49,11 @@ export default function reducerCart(state = INITIAL_STATE, action){
             const newCart = JSON.parse(sessionStorage.getItem(`@context-store-${store}`)) || [];
             
             return saveInSession(newCart, store)
+
+        case 'BUY_POKEMON' : 
+            const {purchasedPokemons } = action;
+            const type = purchasedPokemons.pokemons[0].type
+            savePurchasedItems(purchasedPokemons, type)
         default : return state
     }
 }
@@ -59,4 +64,13 @@ const saveInSession = (pokemons, store) =>{
     const newContext = JSON.parse(sessionStorage.getItem(`@context-store-${store}`));
     return newContext;
 
+}
+
+const savePurchasedItems = (pokemons, store) =>{
+
+    const purchased = JSON.parse(sessionStorage.getItem(`purchased-pokemons-${store}`)) || [];
+    const newBuy = [...purchased, pokemons];
+    sessionStorage.setItem(`purchased-pokemons-${store}`, JSON.stringify(newBuy));
+    const newContext = JSON.parse(sessionStorage.getItem(`purchased-pokemons-${store}`));
+    return newContext;
 }

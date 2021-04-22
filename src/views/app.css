@@ -10,7 +10,9 @@
 	/* overflow: auto; */
 }
 .cart-body{
-	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
 }
 .cart-body-open{
 	display: contents;

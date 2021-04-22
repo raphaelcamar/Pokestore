@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../components/card/Card';
 import Cart from '../components/cart/Cart';
+import Modal from '../components/modal/Modal';
 import Header from '../components/header/Header';
 import Input from '../components/input/Input'
 // import './app.css';
@@ -12,10 +13,15 @@ import water from '../styles/themes/water';
 import GlobalStyle from '../styles/global';
 import {changeContext} from '../store/cart/actions/index';
 import {useDispatch} from 'react-redux';
-
 import {AppDiv, Container, WrapperContainer, Cards, CartBody} from './styles'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+  } from "react-router-dom";
+import Purchased from '../components/purchased/Purchased'
 
-const App = props => {
+const App = (_) => {
 
     const [data, setData ] = useState([]);
     const th = JSON.parse(sessionStorage.getItem('@theme')) || fire
@@ -41,8 +47,6 @@ const App = props => {
         
         setData([]);
     }
-
-
 
     async function fetchItems(){
 
@@ -77,23 +81,52 @@ const App = props => {
         setData(pokemonsFiltered)
     }
 
+    const showCart = (cartState) =>{
+        console.log(cartState)
+        if(cartState == true){
+            return (
+                <>
+                <p>Mostra o carrinho!!</p>
+                </>
+            )
+        }else{
+           return (
+            <>
+            <p>Não mostra o carrinho!!</p>
+            </>
+           )
+        }
+    }
+
     return (
        <ThemeProvider theme={theme}>
            <GlobalStyle/>
             <AppDiv>
-                <Header  catchStore={catchStore}/>
-                <Container>
-                    <WrapperContainer>
-                            <Input placeholder="Ex: Pikachu" label="Pesquise um pokemón" searchPokemon={searchPokemon}/>
-                        <Cards>
-                                {renderCards()}
-                        </Cards>
-                    </WrapperContainer>
-                    <CartBody>
-                        <Cart />
-                    </CartBody>
-                </Container>
+            <Router>
+            
+                <Header catchStore={catchStore} showCart={showCart}/>
+                    <Switch>
+                        <Route path={'/store', '/'} exact>
+                            <Container>
+                                <WrapperContainer>
+                                    {showCart()}
+                                        <Input placeholder="Ex: Pikachu" label="Pesquise um pokemón" searchPokemon={searchPokemon}/>
+                                    <Cards>
+                                            {renderCards()}
+                                    </Cards>
+                                </WrapperContainer>
+                                <CartBody>
+                                    <Cart />
+                                </CartBody>
+                            </Container>
+                        </Route>
+                        <Route path='/infos/purchased'>
+                        <Purchased store={theme.title}/>
+                    </Route>
+                    </Switch>
+                </Router>
             </AppDiv>
+            
        </ThemeProvider>
     )
 }
