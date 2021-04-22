@@ -1,12 +1,13 @@
 import React from 'react';
 import {catchSVG, translate} from '../../helpers/Helpers'
 import Status from '../status/Status';
-import {addPokemon} from '../../store/cart/actions/index';
+import {addPokemon} from '../../store/cart/actions/actions';
 import {useDispatch} from 'react-redux';
-import {Container, HeaderCard, CardButton, Price, StatsRow, NamePokemon, Padding, Img, WrapperPhoto, WrapperButton} from './styles'
+import {Container, HeaderCard, StatsRow, NamePokemon, Padding,  WrapperPhoto, WrapperButton} from './styles'
+import Button from '../button/Button';
 
-const Card = props => {
-    const { item } = props
+const Card = ({item}) => {
+    
     const { name, photo, stats, price } = item
     
     const dispatch = useDispatch();
@@ -38,10 +39,10 @@ const Card = props => {
         <Container>
             <HeaderCard>
                 {catchSVG(title)}
-                <Price>R$: {price}</Price>
+                <h1>R$: {price}</h1>
             </HeaderCard>
             <WrapperPhoto>
-                <Img src={photo} alt="foto do pokemón"></Img>
+                <img src={photo} alt="foto do pokemón"/>
             </WrapperPhoto>
             <NamePokemon>{name}</NamePokemon>
             <Padding>
@@ -57,7 +58,7 @@ const Card = props => {
                 </StatsRow>
 
             </Padding>
-           <WrapperButton><CardButton onClick={add}>Adicionar ao carrinho</CardButton></WrapperButton>     
+           <WrapperButton><Button event={add}>Adicionar ao carrinho</Button></WrapperButton>     
         </Container>
     )
 }

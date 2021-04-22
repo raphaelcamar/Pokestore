@@ -5,10 +5,10 @@ export const addPokemon = pokemon =>{
     }
 }
 
-export const removePokemon = idPokemon =>{
+export const removePokemon = pokemon =>{
     return {
         type : 'REMOVE_POKEMON',
-        idPokemon,
+        pokemon,
     }
 }
 

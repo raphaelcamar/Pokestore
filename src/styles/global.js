@@ -13,6 +13,6 @@ export default createGlobalStyle `
         font-family: Roboto, sans-serif;
     }
     body {
-        background : #F7F7F7
+        background : #F7F7F7;
     }
 `

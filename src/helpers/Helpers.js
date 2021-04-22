@@ -1,4 +1,4 @@
-import {hp, attack, defense, speed, fire, water} from '../assets/svg/svg'
+import {hp, attack, defense, speed, fire, water, cart} from '../assets/svg'
 
 export const createObjectPokemon = (pokemon, type) =>{
     const { forms, sprites, stats, id } = pokemon
@@ -26,7 +26,8 @@ export const catchSVG = (typeSVG) => {
         defense,
         speed,
         fire,
-        water
+        water,
+        cart
     }
     
     return svgs[typeSVG]
@@ -67,4 +68,12 @@ export const getHours = () =>{
 export const calcCashBack = (price) =>{
     const valueDiscounted = (price * 0.10).toFixed(2)
     return valueDiscounted;
+}
+
+export const filterPokemon = (pokemons, value) =>{
+    const pokemonsFiltered = pokemons.filter(pokemon =>{
+        return pokemon.name.toLowerCase().indexOf(value.toLowerCase()) > -1
+    });
+
+    return pokemonsFiltered;
 }

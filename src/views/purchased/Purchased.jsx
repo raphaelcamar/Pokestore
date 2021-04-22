@@ -1,12 +1,9 @@
 import React from 'react'
 import { Container, WrapperContainer, Title, ImgText, CardPokemons, Total, Error } from './styles'
-import './styles.css';
 
-const Purchased = props =>{
+const Purchased = ({store}) =>{
 
-    const {store} = props
     const purchasedPokemons = JSON.parse(sessionStorage.getItem(`purchased-pokemons-${store}`)) || []
-    console.log(purchasedPokemons)
 
     const renderPurchasedItems = () =>{
         if(purchasedPokemons.length < 1){
@@ -52,21 +49,3 @@ const Purchased = props =>{
 }
 
 export default Purchased;
-
-                // <div>
-                //     <aside className="CartCard">
-                //         <div className="container-cartCard">
-                //             <div className="infos">
-                //                 <img src={pokemon.pokemons[0].photo} alt="foto-do-item-escolhido"/>
-                //                 <div className="name">{pokemon.name}</div>
-                //             </div>
-                //             <span className="price">R$ {pokemon.price}</span>
-                //         </div>
-                //         <div className="container-cartCard">
-                //             <div className="qtd">
-                //                 <span>Qtde</span>
-                //                 {/* <input type="number" min='1' max='999' value={qtd} readOnly={true}/> */}
-                //             </div>
-                //         </div>
-                //     </aside>
-                // </div>

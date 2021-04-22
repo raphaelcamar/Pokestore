@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
     width: 100%;
     background: #FFF;
@@ -10,8 +9,7 @@ export const Container = styled.div`
     margin-top : 16px;
     max-height: 70vh;
     overflow: auto;
-    /* position: fixed;
-    right: 0; */
+    overflow-x : hidden;
 `
 
 export const HeaderCart = styled.div`
@@ -19,15 +17,17 @@ export const HeaderCart = styled.div`
     flex-direction: row;
     justify-content: space-between;
     padding-bottom : 24px;
-`
 
-export const Title = styled.div`
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: ${props => props.theme.colors.colorFont};
-`
-export const Svg = styled.svg`
-    padding-right: 8px;
+    div{
+        font-size: 1.50rem;
+        font-weight: 700;
+        display : flex;
+        align-items : center;
+    }
+    svg{
+        padding-right: 8px;
+    }
+    
 `
 
 export const Span = styled.span`
@@ -64,24 +64,7 @@ export const TotalPrice = styled.div`
         font-weight : 700
     }
 `
-export const ButtonCart = styled.button`
-    width: 100%;
-    padding : 12px;
-    margin-top: 8px;
-    border-radius : 10px;
-    border: 1px solid ${props => props.theme.colors.secundary};
-    color : ${props => props.theme.colors.primary};
-    background : #FFF;
-    font-size : 1.25rem;
-    &:hover{
-        cursor : pointer;
-        transition: all ease-out 0.1s;
-        transform: scale(1.05);
-    }
-    &:focus{
-        outline : none;
-    }
-`
+
 export const Width = styled.div`
 width:100%;
 

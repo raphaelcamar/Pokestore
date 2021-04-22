@@ -1,10 +1,8 @@
 import React from 'react';
-import {Container, Spacing, Button} from './styles'
+import Button from '../button/Button';
+import {Container, Spacing} from './styles'
 
-
-const ModalItem = props => {
-
-    const {click} = props
+const ModalItem = ({click}) => {
 
     const close = () =>{
         click()
@@ -17,7 +15,7 @@ const ModalItem = props => {
                 <p id="simple-modal-description">
                     Sua compra poderá ser visualizada na aba 'Minhas Compras'
                 </p>
-                <Button onClick={() =>close()}>Fechar</Button>
+                <Button event={close}>Fechar</Button>
            </Spacing>
         </Container>
     )

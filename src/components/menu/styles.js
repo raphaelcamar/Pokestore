@@ -31,6 +31,7 @@ export const ContainerSelected = styled.div`
 svg{
     width: 25px;
     height: 25px;
+    margin-right : 8px;
 }
 .options{
     border-radius: 0 0 25px 25px;

@@ -1,12 +1,22 @@
 import React from 'react';
-// import Cart from '../cart/Cart';
-import './cardCart.css';
-import {Container, WrapperCard, Infos, SpanQtd, Remove } from './styles'
+import {Container, WrapperCard, Infos, SpanQtd, Remove } from './styles';
+import {useDispatch} from 'react-redux';
+import {removePokemon, qtdPokemon} from '../../store/cart/actions/actions';
 
-const CardCart = props => {
+const CardCart = ({pokemon}) => {
 
-    const { pokemon } = props
+    const dispatch = useDispatch();
+
     const { photo, name, currentPrice, qtd } = pokemon
+
+    const remove = () =>{
+        dispatch(removePokemon(pokemon))
+    }
+
+    const changeAmount = (value) =>{
+        if(value < 1) value = 1
+        dispatch(qtdPokemon(pokemon.idPokemon, value))
+    }
 
     return (
         <Container>
@@ -20,9 +30,9 @@ const CardCart = props => {
             <WrapperCard>
                 <SpanQtd>
                     <span>Qtde</span>
-                    <input type="number" min='1' max='999' value={qtd} onChange={input => props.changeAmount && props.changeAmount(input.target.value, pokemon.idPokemon)}/>
+                    <input type="number" min='1' max='999' value={qtd} onChange={input => {changeAmount(input.target.value)}}/>
                 </SpanQtd>
-                <Remove onClick={_ => props.remove && props.remove(props.remove(pokemon.idPokemon))}>Remover</Remove>
+                <Remove onClick={() =>{remove()}}>Remover</Remove>
             </WrapperCard>
         </Container>
     )

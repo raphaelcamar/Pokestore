@@ -1,10 +1,7 @@
 import React from 'react';
-import './input.css'
-import {Container, InputStyle, Label} from './index'
+import {Container} from './index'
 
-const Input = props => {
-
-    const {searchPokemon} = props
+const Input = ({searchPokemon, label, placeholder}) => {
 
     const search = (value) =>{
         searchPokemon(value)
@@ -12,8 +9,8 @@ const Input = props => {
     
     return (
         <Container>
-            <Label htmlFor="inputSearch">{props.label}</Label>
-            <InputStyle type="text" name="search" placeholder={props.placeholder} id="inputSearch" onChange={(input) =>{search(input.target.value)}}/>
+            <label htmlFor="inputSearch">{label}</label>
+            <input type="text" name="search" placeholder={placeholder} id="inputSearch" onChange={(input) =>{search(input.target.value)}}/>
         </Container>
     )
 }

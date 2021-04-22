@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { catchSVG } from '../../helpers/Helpers';
-// import './styles.css';
 import {ContainerSelected} from './styles'
 
-const Menu = props =>{
+const Menu = ({click}) =>{
 
   const [open, setOpen] = useState('close');
   const [bool, setBool] = useState(false);
@@ -31,7 +30,7 @@ const Menu = props =>{
         <div className={`options ${open}`}>
           <div className="option" onClick={() => {
                 setStore('water')
-                props.click('water')
+                click('water')
                 
                 }}>
               {catchSVG('water')}
@@ -54,7 +53,7 @@ const Menu = props =>{
         <div className={`options ${open}`}>
           <div className="option" onClick={() =>{
                 setStore('fire')
-                props.click('fire')
+                click('fire')
                 }}>
               {catchSVG('fire')}
               <span >Loja de fogo</span>
@@ -65,8 +64,8 @@ const Menu = props =>{
   }
 
   const setType = () =>{
-    if(store == 'fire') return setFire();
-    if(store == 'water') return setWater();
+    if(store === 'fire') return setFire();
+    if(store === 'water') return setWater();
   }
   return(
     <>
@@ -75,4 +74,4 @@ const Menu = props =>{
   )
 }
 
-export default Menu
+export default Menu;

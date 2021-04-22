@@ -1,6 +1,5 @@
 import React from 'react'
 import {Container} from './styles'
-import './status.css'
 
 const Status = ({icon, name, value}) =>(
 
