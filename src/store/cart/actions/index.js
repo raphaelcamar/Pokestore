@@ -35,8 +35,9 @@ export const changeContext = (store) =>{
     }
 }
 
-export const buyPokemons = () =>{
+export const buyPokemons = (pokemons) =>{
     return {
         type : 'BUY_POKEMON',
+        purchasedPokemons : pokemons
     }
 }

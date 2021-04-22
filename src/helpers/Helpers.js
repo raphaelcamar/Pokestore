@@ -46,3 +46,25 @@ export const translate = (attibute) =>{
 const randomPrice = () => {
     return (Math.random() * 500).toFixed(2)
 }
+
+export const getDate = () =>{
+
+        const date = new Date();
+        const day = date.getDate() < 10 ? '0' + date.getDate().toString() : date.getDate();
+        const month = date.getMonth() + 1 < 10 ? '0'+ (date.getMonth() + 1).toString() : date.getMonth() + 1;
+        const year = date.getFullYear();
+      
+        return `${day}/${month}/${year}`;
+}
+export const getHours = () =>{
+    const date = new Date();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const second = date.getSeconds();
+    return `${hour}:${minute}:${second}`
+
+}
+export const calcCashBack = (price) =>{
+    const valueDiscounted = (price * 0.10).toFixed(2)
+    return valueDiscounted;
+}
