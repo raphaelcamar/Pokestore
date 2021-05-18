@@ -7,13 +7,11 @@ const Purchased = ({store}) =>{
 
     const renderPurchasedItems = () =>{
         if(purchasedPokemons.length < 1){
-            return <Error>Você não tem itens comprados nesta loja</Error>
+            return <Error key={1}>Você não tem itens comprados nesta loja</Error>
         }
         return purchasedPokemons.map(pokemon =>{
-            console.log(pokemon)
             return (
-                <>
-                <WrapperContainer>
+                <WrapperContainer key={pokemon.idPokemon}>
                     <Title>
                         <span>Pedido de {pokemon.date}</span>
                         <span>Cashback de R$ {pokemon.discount}</span>
@@ -21,15 +19,14 @@ const Purchased = ({store}) =>{
                     {renderPokemons(pokemon.pokemons)}
                     <Total>Total R$ {pokemon.price}</Total>
                 </WrapperContainer>
-                </>
             )
-        })
+        });
     }
 
     const renderPokemons = (pokemons) =>{
         return pokemons.map(pokemon =>{
             return (
-                <CardPokemons>
+                <CardPokemons key={pokemon.idPokemon}>
                     <ImgText>
                         <img src={pokemon.photo} alt={pokemon.name}/>
                         <span>{pokemon.name}</span>
@@ -42,9 +39,11 @@ const Purchased = ({store}) =>{
     }
 
     return (
-        <Container>
-            {renderPurchasedItems()}           
-        </Container>
+        <>
+            <Container>
+                {renderPurchasedItems()}           
+            </Container>
+        </>
     )
 }
 

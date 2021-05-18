@@ -11,43 +11,44 @@ import {ThemeContext} from 'styled-components'
 
 const Main = props =>{
 
-    const {colors} = useContext(ThemeContext)
+    const {colors} = useContext(ThemeContext);
 
     const {theme, showCart} = props;
 
-    const [data, setData] = useState([]);
-    const [initialData, setInitialData] = useState([]);
+    const [pokemons, setPokemons] = useState([]);
+    const [initialPokemons, setInitialPokemons] = useState([]);
 
     useEffect(function(){
         fetchItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [theme])
     
     const fetchItems = async () =>{
-        setData([])
+        setPokemons([]);
         const urlPokemon = await fetchPokemonType(theme.title);
         const pokemons = await getPokemons(urlPokemon);
         const pokedex = pokemons.map(pokemon => {return createObjectPokemon(pokemon, theme.title)});
-        setInitialData(pokedex);
-        setData(pokedex);
+        setInitialPokemons(pokedex);
+        setPokemons(pokedex);
 
     }
 
     const searchPokemon = (value) =>{
-        const filteredPokemons = filterPokemon(initialData, value)
-        setData(filteredPokemons)
+        const filteredPokemons = filterPokemon(initialPokemons, value)
+        setPokemons(filteredPokemons)
     }
     
     const renderCards = () =>{
 
-        if(data.length <= 0){
+        if(pokemons.length <= 0){
             return (
                 <WrapperLoader>
                     <Loader type="Puff" color={colors.primary} height={100} width={100}/>
                 </WrapperLoader>
             )
         }
-        return data.map(item => {
-            return <Card key={item.idPokemon} item={item} setStorage={()=>{}}/>
+        return pokemons.map(pokemon => {
+            return <Card key={pokemon.idPokemon} item={pokemon}/>
         });
     }
 
@@ -59,7 +60,7 @@ const Main = props =>{
                     {renderCards()}
                 </Cards>
             </WrapperContainer>
-            <CartBody className={showCart}>
+            <CartBody className={showCart ? 'show' : 'hide'}>
                 <Cart/>
             </CartBody>
         </Container>

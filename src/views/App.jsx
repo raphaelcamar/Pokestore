@@ -1,4 +1,5 @@
-import React, {useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {useEffect, useState } from 'react';
 import Header from '../components/header/Header';
 import {ThemeProvider} from 'styled-components';
 import fire from '../styles/themes/fire';
@@ -16,26 +17,32 @@ import Main from './main/Main';
 
 const App = (_) => {
 
-    const [showCart, setShowCart] = useState('hide')
+    const [showCart, setShowCart] = useState(false)
     const themeStorage = JSON.parse(sessionStorage.getItem('@theme')) || fire
     const [theme, setTheme] = useState(themeStorage);
 
     const dispatch = useDispatch();
 
     sessionStorage.setItem(`@theme`, JSON.stringify(theme));
-    dispatch(changeContext(theme.title));
+    
+    useEffect(() =>{
+        dispatch(changeContext(theme.title));
+    }, [])
 
     const catchStore = (type) =>{
 
-        if(type === 'water') setTheme(water);
-        if(type === 'fire') setTheme(fire);
-        if(type === 'bug') setTheme(bug);
-        if(type === 'poison') setTheme(poison);
+        const themes ={
+            water,
+            fire,
+            bug,
+            poison,
+        }
+
+        setTheme(themes[type]);
     }
 
     const show = () =>{
-        if(showCart === 'show')setShowCart('hide');
-        if(showCart === 'hide')setShowCart('show');
+        setShowCart(!showCart);
     }
     
     return (
@@ -47,11 +54,11 @@ const App = (_) => {
                         <Header catchStore={catchStore}/>
                         <Spacing>
                         <Switch>
-                            <Route path={'/store', '/'} exact>
-                                <Main showCart={showCart} theme={theme}/>
-                            </Route>
                             <Route path='/infos/purchased'>
                                 <Purchased store={theme.title}/>
+                            </Route>
+                            <Route path={'/'}>
+                                <Main showCart={showCart} theme={theme}/>
                             </Route>
                         </Switch>
                         </Spacing>

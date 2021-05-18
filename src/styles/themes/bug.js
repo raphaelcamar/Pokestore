@@ -1,4 +1,4 @@
-export default {
+const bug = {
     title : 'bug',
     colors : {
         primary : '#009A1F',
@@ -9,3 +9,5 @@ export default {
         backgound : '#F7F7F7'
     }
 }
+
+export default bug

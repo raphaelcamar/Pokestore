@@ -1,4 +1,4 @@
-const {title} = JSON.parse(sessionStorage.getItem('@theme')) || 'fire'
+const {title} = JSON.parse(sessionStorage.getItem('@theme')) || 'fire';
 const INITIAL_STATE = JSON.parse(sessionStorage.getItem(`@context-store-${title}`)) || []
 
 export default function reducerCart(state = INITIAL_STATE, action){
@@ -31,7 +31,7 @@ export default function reducerCart(state = INITIAL_STATE, action){
         const {type, idPokemon} = action.pokemon
         const pokemon = state.filter(pokemon => pokemon.idPokemon !== idPokemon);
        
-        return saveInSession(pokemon, type)
+        return saveInSession(pokemon, type);
     }
 
     if(type === 'CLEAR_POKEMON'){
@@ -63,14 +63,14 @@ export default function reducerCart(state = INITIAL_STATE, action){
         savePurchasedItems(purchasedPokemons, type)
     }
     
-    return state
+    return state;
 }
 
 const saveInSession = (pokemons, store) =>{
 
     sessionStorage.setItem(`@context-store-${store}`, JSON.stringify(pokemons));
-    const newContext = JSON.parse(sessionStorage.getItem(`@context-store-${store}`));
-    return newContext;
+    // const newContext = JSON.parse(sessionStorage.getItem(`@context-store-${store}`));
+    return pokemons;
 
 }
 
@@ -79,6 +79,6 @@ const savePurchasedItems = (pokemons, store) =>{
     const purchased = JSON.parse(sessionStorage.getItem(`purchased-pokemons-${store}`)) || [];
     const newBuy = [...purchased, pokemons];
     sessionStorage.setItem(`purchased-pokemons-${store}`, JSON.stringify(newBuy));
-    const newContext = JSON.parse(sessionStorage.getItem(`purchased-pokemons-${store}`));
-    return newContext;
+    // const newContext = JSON.parse(sessionStorage.getItem(`purchased-pokemons-${store}`));
+    return newBuy;
 }

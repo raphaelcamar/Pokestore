@@ -14,15 +14,15 @@ const CardCart = ({pokemon}) => {
     }
 
     const changeAmount = (value) =>{
-        if(value < 1) value = 1
-        dispatch(qtdPokemon(pokemon.idPokemon, value))
+        if(value < 1) value = 1;
+        dispatch(qtdPokemon(pokemon.idPokemon, value));
     }
 
     return (
         <Container>
             <WrapperCard>
                 <Infos>
-                    <img src={photo} alt="foto-do-item-escolhido"/>
+                    <img src={photo} alt={name}/>
                     <span className="name">{name}</span>
                 </Infos>
                 <span className="price">R$ {currentPrice}</span>

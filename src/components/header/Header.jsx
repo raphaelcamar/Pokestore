@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container} from './styles';
 import { Link, useLocation} from "react-router-dom";
-import CustomizedMenus from '../menu/Menu';
+import Menu from '../menu/Menu';
 
 const Header = ({catchStore}) => {
     
@@ -23,7 +23,7 @@ const Header = ({catchStore}) => {
     return (
         <Container>
            <div>
-              <CustomizedMenus click={click}></CustomizedMenus>
+              <Menu click={click}></Menu>
           
            </div>
             <span>{optionLink()}</span>

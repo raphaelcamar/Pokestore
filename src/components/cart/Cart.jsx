@@ -3,9 +3,8 @@ import CardCart from '../card-cart/CardCart';
 import {useSelector} from 'react-redux';
 import {clear, buyPokemons } from '../../store/cart/actions/actions';
 import {useDispatch} from 'react-redux';
-import {Container, HeaderCart, Span, Spacing, Message, TotalPrice} from './styles'
+import {Container, HeaderCart, Span, Spacing, Message, TotalPrice, ModalBuy} from './styles'
 import {getDate, getHours, calcCashBack, catchSVG} from '../../helpers/Helpers'
-import Modal from '@material-ui/core/Modal';
 import ModalItem from '../modal/Modal';
 import Button from '../button/Button';
 
@@ -18,6 +17,13 @@ const Cart = _ => {
     const clearCart = () =>{
         const type = cart[0].type
         dispatch(clear(type))
+    }
+
+    if(modal){
+        document.querySelector('body').style.overflow = 'hidden';
+    }else{
+        document.querySelector('body').style.overflow = 'auto';
+
     }
 
     const calcTotalPrice = () =>{
@@ -53,9 +59,7 @@ const Cart = _ => {
 
         if(!cart || cart.length === 0){
 
-            return (
-                <Message>Você não possui itens no seu carrinho!</Message>
-            )
+            return ( <Message>Você não possui itens no seu carrinho!</Message> )
         }else{
             return (
                 <>
@@ -72,9 +76,11 @@ const Cart = _ => {
     }
     return (
         <Container> 
-            <Modal open={modal} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
-                <ModalItem click={handleClose}></ModalItem>
-            </Modal>
+            {modal && (
+                <ModalBuy>
+                    <ModalItem click={handleClose}></ModalItem>
+                </ModalBuy>
+            )}
            <Spacing>
                 <HeaderCart>
                 <div>

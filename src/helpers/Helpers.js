@@ -1,10 +1,10 @@
 import {hp, attack, defense, speed, fire, water, cart, poison, bug} from '../assets/svg'
 
 export const createObjectPokemon = (pokemon, type) =>{
-    const { forms, sprites, stats, id } = pokemon
-    const { name } = forms[0]
-    const photo = sprites.other['official-artwork'].front_default || sprites.other.dream_world.front_default || sprites.front_default
-    const price = randomPrice()
+    const { forms, sprites, stats, id } = pokemon;
+    const { name } = forms[0] || '';
+    const photo = sprites.other['official-artwork'].front_default || sprites.other.dream_world.front_default || sprites.front_default;
+    const price = randomPrice();
     const obj = {
         name,
         photo,

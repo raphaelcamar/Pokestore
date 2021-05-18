@@ -1,4 +1,4 @@
-export default {
+const poison = {
     title : 'poison',
     colors : {
         primary : '#A944F5',
@@ -9,3 +9,5 @@ export default {
         backgound : '#F7F7F7'
     }
 }
+
+export default poison;

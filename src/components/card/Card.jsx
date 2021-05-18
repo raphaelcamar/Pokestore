@@ -14,7 +14,6 @@ const Card = ({item}) => {
 
     const {title} = JSON.parse(sessionStorage.getItem('@theme'));
 
-
     const drawStats = () =>{
         return stats.map(item => {
             const { base_stat, stat} = item

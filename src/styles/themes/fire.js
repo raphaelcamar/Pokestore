@@ -1,4 +1,4 @@
-export default {
+const fire = {
     title : 'fire',
     colors : {
         primary : '#F54456',
@@ -9,3 +9,5 @@ export default {
         backgound : '#F7F7F7'
     }
 }
+
+export default fire;

@@ -1,4 +1,4 @@
-export default {
+const water = {
     title : 'water',
     colors : {
         primary : '#4479F5',
@@ -9,3 +9,5 @@ export default {
         backgound : '#F7F7F7'
     }
 }
+
+export default water;
