@@ -1,43 +1,55 @@
 export const addPokemon = pokemon =>{
     return {
         type : 'ADD_POKEMON_CART',
-        pokemon,
+        payload: {
+            pokemon,
+        }
     }
 }
 
 export const removePokemon = pokemon =>{
     return {
         type : 'REMOVE_POKEMON',
-        pokemon,
+        payload: {
+            pokemon
+        }
     }
 }
 
 export const qtdPokemon = (idPokemon, value) =>{
     return {
         type : 'ADD_SUBTRACT',
-        idPokemon,
-        value
+        payload: {
+            idPokemon,
+            value
+        }
     }
 }
 
 export const clear = (store) =>{
     return {
         type : 'CLEAR_POKEMON',
-        pokemon : [],
-        store
+        payload: {
+            pokemon : [],
+            store
+        }
     }
 }
 
 export const changeContext = (store) =>{
     return {
         type : 'CHANGE_CONTEXT',
-        store
+        payload: {
+            store
+        }
     }
 }
 
 export const buyPokemons = (pokemons) =>{
     return {
         type : 'BUY_POKEMON',
-        purchasedPokemons : pokemons
+        payload: {
+            purchasedPokemons : pokemons
+        }
     }
 }

@@ -1,16 +1,15 @@
 import React from 'react';
-import {catchSVG, translate} from '../../helpers/Helpers'
+import { catchSVG, translate } from '../../helpers/Helpers';
 import Status from '../status/Status';
-import {addPokemon} from '../../store/cart/actions/actions';
-import {useDispatch} from 'react-redux';
-import {Container, HeaderCard, StatsRow, NamePokemon, Padding,  WrapperPhoto, WrapperButton} from './styles'
+import { addPokemon } from '../../store/cart/actions/cartActions';
+import { connect } from 'react-redux';
+import { Container, HeaderCard, StatsRow, NamePokemon, Padding,  WrapperPhoto, WrapperButton } from './styles';
 import Button from '../button/Button';
+import { bindActionCreators } from 'redux';
 
-const Card = ({item}) => {
-    
+const Card = (props) => {
+    const { item } = props;
     const { name, photo, stats, price } = item
-    
-    const dispatch = useDispatch();
 
     const {title} = JSON.parse(sessionStorage.getItem('@theme'));
 
@@ -27,7 +26,7 @@ const Card = ({item}) => {
     }
 
     const add = () =>{
-        dispatch(addPokemon(item))
+        props.addPokemon(item)
     }
 
     const ObjPokemon = drawStats().filter(item => item.name)
@@ -62,4 +61,6 @@ const Card = ({item}) => {
     )
 }
 
-export default Card
+const mapDispatchToProps = dispatch => bindActionCreators({addPokemon}, dispatch);
+
+export default connect(null, mapDispatchToProps)(Card);

@@ -1,21 +1,21 @@
 import React from 'react';
-import {Container, WrapperCard, Infos, SpanQtd, Remove } from './styles';
-import {useDispatch} from 'react-redux';
-import {removePokemon, qtdPokemon} from '../../store/cart/actions/actions';
+import { Container, WrapperCard, Infos, SpanQtd, Remove } from './styles';
+import { connect } from 'react-redux';
+import { removePokemon, qtdPokemon } from '../../store/cart/actions/cartActions';
+import { bindActionCreators } from 'redux';
 
-const CardCart = ({pokemon}) => {
+const CardCart = ({pokemon, qtdPokemon, removePokemon}) => {
 
-    const dispatch = useDispatch();
 
-    const { photo, name, currentPrice, qtd } = pokemon
+    const { photo, name, currentPrice, qtd } = pokemon;
 
     const remove = () =>{
-        dispatch(removePokemon(pokemon))
+        removePokemon(pokemon);
     }
 
     const changeAmount = (value) =>{
         if(value < 1) value = 1;
-        dispatch(qtdPokemon(pokemon.idPokemon, value));
+        qtdPokemon(pokemon.idPokemon, value);
     }
 
     return (
@@ -38,4 +38,7 @@ const CardCart = ({pokemon}) => {
     )
 }
 
-export default CardCart;
+const mapStateToProps = (state) => ({cart: state.cart});
+const mapDispatchToProps = dispatch => bindActionCreators({removePokemon, qtdPokemon}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardCart);

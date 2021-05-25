@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { catchSVG } from '../../helpers/Helpers';
+import { changeContext } from '../../store/cart/actions/cartActions';
 import {ContainerSelected} from './styles';
 
-const Menu = ({click}) =>{
-
+const Menu = (props) =>{
+    const { click, changeContext } = props
     const [open, setOpen] = useState('close');
     const [bool, setBool] = useState(false);
     const theme = JSON.parse(sessionStorage.getItem('@theme')).title;
@@ -11,7 +14,7 @@ const Menu = ({click}) =>{
 
 
     const openTab = (valor) =>{
-    const v = !valor
+    const v = !valor;
     if(v) setOpen('open');
     if(!v) setOpen('close');
     setBool(v);
@@ -19,12 +22,15 @@ const Menu = ({click}) =>{
 
     const newThemes = THEMES.filter(themes => theme !== themes);
     newThemes.unshift(theme);
-    const [themes, setThemes] = useState(newThemes)
+    const [themes, setThemes] = useState(newThemes);
 
     const newTheme = (store) =>{
       const arr = themes.filter(theme => store !== theme);
       arr.unshift(store);
       setThemes(arr);
+      const [theme] = arr;
+      changeContext(theme);
+      document.getElementById('favicon').href = `./${theme}.svg`;
     }
 
     const generate = () =>{
@@ -63,4 +69,7 @@ const Menu = ({click}) =>{
 
 }
 
-export default Menu;
+const mapStateToProps = state => ({store: state});
+const mapDispatchToProps = dispatch => bindActionCreators({changeContext}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

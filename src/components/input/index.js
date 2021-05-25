@@ -13,7 +13,7 @@ export const Container = styled.div`
     input{
         outline: none;
         padding: 12px 2px;
-        border : none;
+        border : 1px solid white;
         -webkit-box-shadow: var(--box-shadow);
         box-shadow: var(--box-shadow);
         margin-bottom: 2.08rem;
@@ -24,6 +24,7 @@ export const Container = styled.div`
         }
         &:focus{
             border: 1px solid ${props => props.theme.colors.primary};
+            transition: border .2s;
         }
         &:hover{
             outline : none

@@ -1,22 +1,20 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import CardCart from '../card-cart/CardCart';
-import {useSelector} from 'react-redux';
-import {clear, buyPokemons } from '../../store/cart/actions/actions';
-import {useDispatch} from 'react-redux';
-import {Container, HeaderCart, Span, Spacing, Message, TotalPrice, ModalBuy} from './styles'
-import {getDate, getHours, calcCashBack, catchSVG} from '../../helpers/Helpers'
+import { connect } from 'react-redux';
+import { clear, buyPokemons } from '../../store/cart/actions/cartActions';
+import { Container, HeaderCart, Span, Spacing, Message, TotalPrice, ModalBuy } from './styles'
+import { getDate, getHours, calcCashBack, catchSVG } from '../../helpers/Helpers'
 import ModalItem from '../modal/Modal';
 import Button from '../button/Button';
+import { bindActionCreators } from 'redux';
 
-const Cart = _ => {
+const Cart = ({ buyPokemons, cart, clear }) => {
 
-    const cart = useSelector((state) => state)
-    const dispatch = useDispatch();
     const [modal, setModal] = useState(false)
 
     const clearCart = () =>{
         const type = cart[0].type
-        dispatch(clear(type))
+        clear(type);
     }
 
     if(modal){
@@ -34,19 +32,19 @@ const Cart = _ => {
 
     const buy = () =>{
         const price = calcTotalPrice();
-        dispatch(buyPokemons({
+        buyPokemons({
             pokemons : [...cart], 
             price,
             discount : calcCashBack(price),
             date : getDate(),
             hour : getHours()
-        }));
+        });
         clearCart();
         setModal(true);
     }
 
     const handleClose = () =>{
-        setModal(false)
+        setModal(false);
     }
 
     const emptyCart = () =>{
@@ -96,4 +94,7 @@ const Cart = _ => {
         </Container>
     )
 }
-export default Cart;
+const mapStateToProps = state => ({cart: state.cart});
+const mapDispatchToProps = dispatch => bindActionCreators({clear, buyPokemons}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

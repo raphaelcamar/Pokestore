@@ -1,4 +1,11 @@
-import {createStore} from 'redux';
-import reducer from './cart/index'
+import { combineReducers } from 'redux';
+import cartReducer from './cart/index'
+import pokemonReducer from './pokemons';
 
-export default createStore(reducer)
+
+const rootReducer = combineReducers({
+  cart: cartReducer,
+  pokemons: pokemonReducer,
+});
+
+export default rootReducer;

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/header/Header';
 import {ThemeProvider} from 'styled-components';
 import fire from '../styles/themes/fire';
@@ -7,10 +7,10 @@ import water from '../styles/themes/water';
 import bug from '../styles/themes/bug';
 import poison from '../styles/themes/poison';
 import GlobalStyle from '../styles/global';
-import {changeContext} from '../store/cart/actions/actions';
-import {useDispatch} from 'react-redux';
-import {AppDiv, Spacing} from './styles'
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { changeContext } from '../store/cart/actions/cartActions';
+import { useDispatch } from 'react-redux';
+import { AppDiv, Spacing } from './styles'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Purchased from './purchased/Purchased';
 import Tooltip from '../components/tooltip/Tooltip'
 import Main from './main/Main';
@@ -27,11 +27,11 @@ const App = (_) => {
     
     useEffect(() =>{
         dispatch(changeContext(theme.title));
-    }, [])
+    }, []);
 
     const catchStore = (type) =>{
 
-        const themes ={
+        const themes = {
             water,
             fire,
             bug,
