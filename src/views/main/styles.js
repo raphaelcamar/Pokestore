@@ -10,6 +10,7 @@ export const Container = styled.div `
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
+    overflow: hidden;
 
     .show{
         left : 0 !important;
@@ -20,21 +21,6 @@ export const Container = styled.div `
     }
 `
 
-export const WrapperContainer = styled.div`
-    width: 100%;
-
-    @media(min-width : 1000px){
-        width: 65%;
-		padding: 0 1.08rem 0 0;
-}
-`
-
-export const Cards = styled.div`
-	display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-`
-
 export const CartBody = styled.div`
     position: fixed;
     left : -100%;
@@ -43,13 +29,11 @@ export const CartBody = styled.div`
     height : 100%;
     @media(min-width : 1000px){
         width: 35%;
-        position : initial;
+        position : fixed;
+        left : initial;
+        right: 16px;
+        top : initial;
+        width : 30%;
+        height : 100%;
 }
-`
-
-export const WrapperLoader = styled.div`
-    width : 100%;
-    display : flex;
-    justify-content : center;
-    align-items : center
 `

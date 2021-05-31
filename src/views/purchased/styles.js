@@ -45,6 +45,7 @@ export const CardPokemons = styled.div`
     display: flex;
     margin : 8px 0;
     justify-content: space-between;
+    align-items: center;
     &:hover{
         background-color: #F7F7F7
     }
