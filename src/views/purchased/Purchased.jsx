@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemesContext } from '../../contexts/ThemeContext'
 import { Container, WrapperContainer, Title, ImgText, CardPokemons, Total, Error } from './styles'
 
 const Purchased = ({store}) =>{
-
-    const purchasedPokemons = JSON.parse(sessionStorage.getItem(`purchased-pokemons-${store}`)) || []
+    const { actualTheme } = useContext(ThemesContext)
+    console.log(actualTheme)
+    const purchasedPokemons = JSON.parse(sessionStorage.getItem(`purchased-pokemons-${actualTheme.title}`)) || []
 
     const renderPurchasedItems = () =>{
         if(purchasedPokemons.length < 1){

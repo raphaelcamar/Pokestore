@@ -3,13 +3,10 @@ import { createObjectPokemon } from '../../../helpers/Helpers';
 
 export const fetchLinkPokemons = async (type) => {
   const urlPokemons = await fetchPokemonType(type);
-  const firstPokemons = urlPokemons.slice(0, 12);
-  const { payload } = await fetchPokemons(firstPokemons, type);
   return {
     type: 'FETCH_POKEMONS',
     payload: {
       urlPokemons,
-      pokemons: payload.pokemons
     },
   }
 }
@@ -23,7 +20,7 @@ export const clear = () =>{
   }
 }
 
-export const fetchPokemons = async (urlPokemons, type) =>{
+export const fetchPokemons = async (urlPokemons, type) => {
   const pokemons = await getPokemons(urlPokemons);
   const pokedex = pokemons.map(pokemon => {return createObjectPokemon(pokemon, type)});
   return {
@@ -32,5 +29,11 @@ export const fetchPokemons = async (urlPokemons, type) =>{
       pokemons: pokedex
     }
   }
+}
+
+export const updatePagination = () =>{
+    return {
+      type: 'UPDATE_PAGINATION',
+    }
 }
 

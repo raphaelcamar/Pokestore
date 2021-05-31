@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { catchSVG, translate } from '../../helpers/Helpers';
 import Status from '../status/Status';
 import { addPokemon } from '../../store/cart/actions/cartActions';
@@ -6,12 +6,13 @@ import { connect } from 'react-redux';
 import { Container, HeaderCard, StatsRow, NamePokemon, Padding,  WrapperPhoto, WrapperButton } from './styles';
 import Button from '../button/Button';
 import { bindActionCreators } from 'redux';
+import { ThemesContext } from '../../contexts/ThemeContext';
 
 const Card = (props) => {
-    const { item } = props;
+    const { item, ref } = props;
     const { name, photo, stats, price } = item
 
-    const {title} = JSON.parse(sessionStorage.getItem('@theme'));
+    const {actualTheme} = useContext(ThemesContext);
 
     const drawStats = () =>{
         return stats.map(item => {
@@ -22,7 +23,7 @@ const Card = (props) => {
                 name : translate(name),
                 icon : catchSVG(name),
             }
-        })
+        });
     }
 
     const add = () =>{
@@ -32,11 +33,12 @@ const Card = (props) => {
     const ObjPokemon = drawStats().filter(item => item.name)
    
     const status = ObjPokemon;
-    
+    const [health, attack, defense, speed] = status
     return (
+        
         <Container>
             <HeaderCard>
-                {catchSVG(title)}
+                {catchSVG(actualTheme.title)}
                 <h1>R$: {price}</h1>
             </HeaderCard>
             <WrapperPhoto>
@@ -46,13 +48,13 @@ const Card = (props) => {
             <Padding>
 
                 <StatsRow>
-                    <Status name={status[0].name} icon={status[0].icon} value={status[0].base_stat}/>
-                    <Status name={status[1].name} icon={status[1].icon} value={status[1].base_stat}/>
+                    <Status name={health.name} icon={health.icon} value={health.base_stat}/>
+                    <Status name={attack.name} icon={attack.icon} value={attack.base_stat}/>
                 </StatsRow>
 
                 <StatsRow>
-                    <Status name={status[2].name} icon={status[2].icon} value={status[2].base_stat}/>
-                    <Status name={status[3].name} icon={status[3].icon} value={status[3].base_stat}/>
+                    <Status name={defense.name} icon={defense.icon} value={defense.base_stat}/>
+                    <Status name={speed.name} icon={speed.icon} value={speed.base_stat}/>
                 </StatsRow>
 
             </Padding>

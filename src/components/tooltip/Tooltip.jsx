@@ -9,7 +9,7 @@ const Tooltip = ({click}) => {
 
     return (
         <Container onClick={() =>{click()}}>
-            <div className="qtd">{cart.length}</div>
+            <div className="qtd">{cart.cart.length}</div>
             {catchSVG('cart')}
         </Container>
     )

@@ -3,13 +3,9 @@ import { Container} from './styles';
 import { Link, useLocation} from "react-router-dom";
 import Menu from '../menu/Menu';
 
-const Header = ({catchStore}) => {
+const Header = () => {
     
     const path = useLocation().pathname
-
-    const click = (type) =>{
-        catchStore(type);
-    }
 
     const optionLink = () =>{
 
@@ -23,7 +19,7 @@ const Header = ({catchStore}) => {
     return (
         <Container>
            <div>
-              <Menu click={click}></Menu>
+              <Menu></Menu>
           
            </div>
             <span>{optionLink()}</span>
