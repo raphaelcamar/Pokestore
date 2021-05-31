@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Header from '../components/header/Header';
-import fire from '../styles/themes/fire';
 import { changeContext } from '../store/cart/actions/cartActions';
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { AppDiv, Spacing } from './styles'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Purchased from './purchased/Purchased';

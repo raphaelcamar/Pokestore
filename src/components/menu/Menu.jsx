@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { ThemeContext } from 'styled-components';
 import { ThemesContext } from '../../contexts/ThemeContext';
 import { catchSVG } from '../../helpers/Helpers';
 import { changeContext } from '../../store/cart/actions/cartActions';

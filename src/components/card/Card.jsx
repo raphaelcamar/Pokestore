@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 import { ThemesContext } from '../../contexts/ThemeContext';
 
 const Card = (props) => {
-    const { item, ref } = props;
+    const { item } = props;
     const { name, photo, stats, price } = item
 
     const {actualTheme} = useContext(ThemesContext);

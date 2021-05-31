@@ -1,7 +1,6 @@
-import axios from 'axios';
-import {ùseEffect, useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { createObjectPokemon } from '../helpers/Helpers';
-import {getPokemons} from '../api/Api'
+import { getPokemons } from '../api/Api'
 
 const usePokemonsFetch = (pokemons = [], type) =>{
 
