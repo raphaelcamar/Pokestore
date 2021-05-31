@@ -7,7 +7,7 @@ export const Container = styled.div`
     -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
     margin-top : 16px;
-    max-height: 70vh;
+    max-height: 80vh;
     overflow: auto;
     overflow-x : hidden;
     &::-webkit-scrollbar {
@@ -79,10 +79,10 @@ width:100%;
 `
 
 export const ModalBuy = styled.div`
-    position : absolute;
+    position : fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.5);    
 `
