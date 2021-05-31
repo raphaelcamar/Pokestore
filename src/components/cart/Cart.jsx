@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import CardCart from '../card-cart/CardCart';
 import { connect } from 'react-redux';
 import { clear, buyPokemons } from '../../store/cart/actions/cartActions';
@@ -7,21 +7,22 @@ import { getDate, getHours, calcCashBack, catchSVG } from '../../helpers/Helpers
 import ModalItem from '../modal/Modal';
 import Button from '../button/Button';
 import { bindActionCreators } from 'redux';
+import { ThemesContext } from '../../contexts/ThemeContext';
 
 const Cart = ({ buyPokemons, cart, clear }) => {
 
-    const [modal, setModal] = useState(false)
+    const [modal, setModal] = useState(false);
+    const cartRef = useRef()
+    const {actualTheme} = useContext(ThemesContext);
 
     const clearCart = () =>{
-        const type = cart[0].type
-        clear(type);
+        clear(actualTheme.title);
     }
 
     if(modal){
         document.querySelector('body').style.overflow = 'hidden';
     }else{
         document.querySelector('body').style.overflow = 'auto';
-
     }
 
     const calcTotalPrice = () =>{
@@ -72,12 +73,14 @@ const Cart = ({ buyPokemons, cart, clear }) => {
             )
         }
     }
+    
     return (
-        <Container> 
+        <Container ref={cartRef}> 
             {modal && (
                 <ModalBuy>
                     <ModalItem click={handleClose}></ModalItem>
                 </ModalBuy>
+       
             )}
            <Spacing>
                 <HeaderCart>
