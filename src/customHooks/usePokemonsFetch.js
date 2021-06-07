@@ -23,6 +23,7 @@ const usePokemonsFetch = (pokemons, type) =>{
       setLoadingPokemons(false);
 
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pokemons]);
 
   const fetchNewPage = (initial, offset) => {
@@ -66,60 +67,5 @@ const usePokemonsFetch = (pokemons, type) =>{
   }
 
 }
-
-//   useEffect(() =>{
-//     setPokemonsFetched([]);
-
-//     if(pokemons.length > 0){
-//       const result = getPokemons(pokemons.slice(0, 12));
-
-//       result.then((res) =>{
-//         const result = res.map(pokemon =>{
-//           return createObjectPokemon(pokemon, type);
-//         });
-//         setPokemonsFetched(result);
-//         setLoadingPokemons(false);
-//       });
-//     }
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, [pokemons]);
-
-//   const fetchFilterPokemons = (pokemonsSearched) => {
-
-//     setLoadingPokemons(true)
-//     setPokemonsFetched([]);
-
-//     if(pokemonsSearched.length > 0){
-//       const result = getPokemons(pokemonsSearched)
-
-//       result.then((res) =>{
-//         const result = res.map(pokemon => {
-//           return createObjectPokemon(pokemon, type);
-//         });
-//         setPokemonsFetched(result);
-        
-//       }).then(() =>{setLoadingPokemons(false)});
-//     }
-//   }
-
-//   const newFetchPokemons = (initial, offset) =>{
-//     const splittedPokemons = pokemons.slice(initial, offset);
-//     const result = getPokemons(splittedPokemons);
-//     result.then(resp => {
-//       const createObject = resp.map(pokemon => {
-//         return createObjectPokemon(pokemon, type);
-//       });
-//       setPokemonsFetched(createObject);
-//     })
-//     setPokemonsFetched(result);
-//   }
-
-//   return {
-//     pokemonsFetched,
-//     loadingPokemons,
-//     fetchFilterPokemons,
-//     newFetchPokemons,
-//   }
-// }
 
 export default usePokemonsFetch

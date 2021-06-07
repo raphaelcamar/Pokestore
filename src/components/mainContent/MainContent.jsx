@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {Container, Cards, WrapperLoader} from './styles';
 import Input from '../input/Input';
 import Loader from 'react-loader-spinner';
@@ -11,7 +11,6 @@ const MainContent = () =>{
   
   const { actualTheme } = useContext(ThemesContext);
   const {
-    loading,
     error,
     urlPokemons
   } = usePokemonTypeSearch(actualTheme.title);

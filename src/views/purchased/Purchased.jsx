@@ -1,19 +1,19 @@
-import React, { useContext } from 'react'
-import { ThemesContext } from '../../contexts/ThemeContext'
-import { Container, WrapperContainer, Title, ImgText, CardPokemons, Total, Error } from './styles'
+import React, { useContext } from 'react';
+import { ThemesContext } from '../../contexts/ThemeContext';
+import { Container, WrapperContainer, Title, ImgText, CardPokemons, Total, Error } from './styles';
+import {makeid} from '../../helpers/Helpers'
 
-const Purchased = ({store}) =>{
+const Purchased = (props) =>{
     const { actualTheme } = useContext(ThemesContext)
-    console.log(actualTheme)
     const purchasedPokemons = JSON.parse(sessionStorage.getItem(`purchased-pokemons-${actualTheme.title}`)) || []
 
     const renderPurchasedItems = () =>{
         if(purchasedPokemons.length < 1){
             return <Error key={1}>Você não tem itens comprados nesta loja</Error>
         }
-        return purchasedPokemons.map(pokemon =>{
+        return purchasedPokemons.map((pokemon, index) =>{
             return (
-                <WrapperContainer key={pokemon.idPokemon}>
+                <WrapperContainer key={makeid(index)}>
                     <Title>
                         <span>Pedido de {pokemon.date}</span>
                         <span>Cashback de R$ {pokemon.discount}</span>
@@ -22,22 +22,21 @@ const Purchased = ({store}) =>{
                     <Total>Total R$ {pokemon.price}</Total>
                 </WrapperContainer>
             )
-        });
+        })
     }
 
     const renderPokemons = (pokemons) =>{
-        return pokemons.map(pokemon =>{
-            return (
-                <CardPokemons key={pokemon.idPokemon}>
-                    <ImgText>
-                        <img src={pokemon.photo} alt={pokemon.name}/>
-                        <span>{pokemon.name}</span>
-                    </ImgText>
-                    <span></span>
-                    <span>{pokemon.qtd} x {pokemon.price}</span>
-                </CardPokemons>
-            )
-        })
+        return pokemons.map((pokemon) =>(
+            
+            <CardPokemons key={makeid(pokemon.idPokemon)}>
+                <ImgText>
+                    <img src={pokemon.photo} alt={pokemon.name}/>
+                    <span>{pokemon.name}</span>
+                </ImgText>
+                <span></span>
+                <span>{pokemon.qtd} x {pokemon.price}</span>
+            </CardPokemons>
+        ))
     }
 
     return (
