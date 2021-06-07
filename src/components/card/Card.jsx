@@ -3,7 +3,15 @@ import { catchSVG, translate } from '../../helpers/Helpers';
 import Status from '../status/Status';
 import { addPokemon } from '../../store/cart/actions/cartActions';
 import { connect } from 'react-redux';
-import { Container, HeaderCard, StatsRow, NamePokemon, Padding,  WrapperPhoto, WrapperButton } from './styles';
+import {
+    Container,
+    HeaderCard,
+    StatsRow,
+    NamePokemon,
+    Padding,
+    WrapperPhoto,
+    WrapperButton
+} from './styles';
 import Button from '../button/Button';
 import { bindActionCreators } from 'redux';
 import { ThemesContext } from '../../contexts/ThemeContext';

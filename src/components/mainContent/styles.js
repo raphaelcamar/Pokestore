@@ -26,6 +26,17 @@ export const Container = styled.div`
             transform: scale(1.1);
         }
     }
+
+    .error{
+        width: 100%;
+        border: 1px solid ${props => props.theme.colors.primary};
+        padding: 20px 0;
+        text-align: center;
+        color : ${props => props.theme.colors.primary};
+        background-color : ${props => props.theme.colors.third};
+        border-radius: 5px;
+        margin-bottom: 32px;
+    }
 `
 
 export const Cards = styled.div`
