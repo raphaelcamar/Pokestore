@@ -32,4 +32,8 @@ const usePokemonTypeSearch = (type) => {
   }
 }
 
+
+
+
+
 export default usePokemonTypeSearch;
