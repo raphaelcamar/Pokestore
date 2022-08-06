@@ -1,0 +1,65 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:@Typescript-eslint/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "rules": {
+        "space-before-function-paren": "off",
+		"react/jsx-no-constructed-context-values": "off",
+    "prettier/prettier": ["error", {
+			"singleQuote": true,
+			"semi": true,
+      "printWidth": 120
+		}],
+    "react/prop-types": "off",
+		"react/jsx-filename-extension": [
+			1,
+			{
+				"extensions": [".tsx"]
+			}
+		],
+		"react/function-component-definition": [
+			2,
+			{
+				"namedComponents": "arrow-function",
+				"unnamedComponents": "arrow-function"
+			}
+		],
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-props-no-spreading": "off",
+		"import/prefer-default-export": "off",
+		"import/no-unresolved": "off",
+		"import/extensions": "off",
+		"react/require-default-props": "off",
+		"class-methods-use-this": "off",
+		"react/jsx-no-useless-fragment": "off",
+		"default-case": "off",
+		"no-useless-constructor": "off",
+		"no-shadow": "off",
+  	    "@typescript-eslint/no-shadow": ["error"],
+		"import/no-extraneous-dependencies": ["off", {"devDependencies": false}],
+		"no-underscore-dangle": "off",
+		"@typescript-eslint/no-namespace": "off",
+		"import/export": "off",
+		"lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }]
+    }
+}
