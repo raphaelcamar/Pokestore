@@ -1,0 +1,13 @@
+{
+  "Create FC component": {
+    "prefix": "sptComponent",
+    "body": [
+      "interface IInput {}",
+     " export const Input: React.FC = () => {",
+        "console.log('');",
+        "return <></>;",
+      "}",
+    ]
+  }
+}
+

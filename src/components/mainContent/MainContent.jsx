@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import Loader from 'react-loader-spinner';
 import { Container, Cards, WrapperLoader } from './styles';
-import Input from '../input/Input';
 import Card from '../card/Card';
 import usePokemonTypeSearch from '../../customHooks/usePokemonTypeSearch';
 import usePokemonsFetch from '../../customHooks/usePokemonsFetch';
 import { ThemesContext } from '../../contexts/ThemeContext';
 import { useThemeContext } from '@/contexts/theme';
+import { Input } from '@/components/atoms';
 
 const MainContent = () => {
   const { currentTheme } = useThemeContext();
@@ -69,7 +69,7 @@ const MainContent = () => {
       <Input
         placeholder="Ex: Pikachu"
         label="Pesquise um pokemón"
-        searchPokemon={searchPokemon}
+        handleSubmit={searchPokemon}
         labelButton="Pesquisar"
       />
       <Cards>{renderCards()}</Cards>
