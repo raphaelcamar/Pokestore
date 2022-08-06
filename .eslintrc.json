@@ -34,7 +34,7 @@
 		"react/jsx-filename-extension": [
 			1,
 			{
-				"extensions": [".tsx"]
+				"extensions": ["jsx",".tsx", "js"]
 			}
 		],
 		"react/function-component-definition": [
