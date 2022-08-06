@@ -1,47 +1,46 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import Header from '../components/header/Header';
 import { changeContext } from '../store/cart/actions/cartActions';
-import { connect } from 'react-redux';
-import { AppDiv, Spacing } from './styles'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { AppDiv, Spacing } from './styles';
 import Purchased from './purchased/Purchased';
-import Tooltip from '../components/tooltip/Tooltip'
+import Tooltip from '../components/tooltip/Tooltip';
 import Main from './main/Main';
 import { ThemesProvider } from '../contexts/ThemeContext';
-import { bindActionCreators } from 'redux';
 
-const App = (props) => {
+const App = props => {
+  const [showCart, setShowCart] = useState(false);
 
-    const [showCart, setShowCart] = useState(false);
+  const show = () => {
+    setShowCart(!showCart);
+  };
 
-    const show = () =>{
-        setShowCart(!showCart);
-    }
-    
-    return (
-        <ThemesProvider>
-            <AppDiv>
-                <Router>
-                    <Tooltip click={show}/>
-                    <Header />
-                    <Spacing>
-                        <Switch>
-                            <Route path='/infos/purchased'>
-                                <Purchased />
-                            </Route>
-                            <Route path={'/'}>
-                                <Main showCart={showCart} />
-                            </Route>
-                        </Switch>
-                    </Spacing>
-                </Router>
-            </AppDiv>
-        </ThemesProvider>
-    )
-}
+  return (
+    <ThemesProvider>
+      <AppDiv>
+        <Router>
+          <Tooltip click={show} />
+          <Header />
+          <Spacing>
+            <Switch>
+              <Route path="/infos/purchased">
+                <Purchased />
+              </Route>
+              <Route path="/">
+                <Main showCart={showCart} />
+              </Route>
+            </Switch>
+          </Spacing>
+        </Router>
+      </AppDiv>
+    </ThemesProvider>
+  );
+};
 
-const mapStateToProps = state => ({store: state});
-const mapDispatchToProps = dispatch => bindActionCreators({changeContext}, dispatch)
+const mapStateToProps = state => ({ store: state });
+const mapDispatchToProps = dispatch => bindActionCreators({ changeContext }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

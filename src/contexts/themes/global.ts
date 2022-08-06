@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export default createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   :root{
     --border-radius : 5px;
     --box-shadow :  0px 2px 8px 0px rgba(0,0,0,0.16);
