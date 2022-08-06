@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -9,7 +8,7 @@ import { AppDiv, Spacing } from './styles';
 import Purchased from './purchased/Purchased';
 import Tooltip from '../components/tooltip/Tooltip';
 import Main from './main/Main';
-import { ThemesProvider } from '@/contexts/ThemeContext';
+import { StyledThemeProvider } from '@/contexts/theme';
 
 const App = props => {
   const [showCart, setShowCart] = useState(false);
@@ -19,7 +18,7 @@ const App = props => {
   };
 
   return (
-    <ThemesProvider>
+    <StyledThemeProvider>
       <AppDiv>
         <Router>
           <Tooltip click={show} />
@@ -36,7 +35,7 @@ const App = props => {
           </Spacing>
         </Router>
       </AppDiv>
-    </ThemesProvider>
+    </StyledThemeProvider>
   );
 };
 

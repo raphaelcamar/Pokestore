@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { useThemeContext } from '@/contexts/theme';
 import { ThemesContext } from '../../contexts/ThemeContext';
 import { catchSVG } from '../../helpers/Helpers';
 import { changeContext } from '../../store/cart/actions/cartActions';
@@ -8,7 +9,7 @@ import { ContainerSelected } from './styles';
 
 const Menu = props => {
   const [bool, setBool] = useState(false);
-  const { vectorThemes, actualTheme, changeTheme } = useContext(ThemesContext);
+  const { changeTheme, currentTheme } = useThemeContext();
 
   const openTab = valor => {
     setBool(!bool);
@@ -23,12 +24,12 @@ const Menu = props => {
         }}
       >
         <div className="description">
-          {catchSVG(actualTheme.title)}
-          <span>{`${actualTheme.title} store`}</span>
+          {catchSVG(currentTheme.title)}
+          <span>{`${currentTheme.title} store`}</span>
         </div>
       </div>
       <div className={`options ${bool ? 'open' : 'close'}`}>
-        {vectorThemes.map((theme, i) => {
+        {/* {vectorThemes.map((theme, i) => {
           if (i === 0) return '';
 
           return (
@@ -46,7 +47,7 @@ const Menu = props => {
               </span>
             </div>
           );
-        })}
+        })} */}
       </div>
     </ContainerSelected>
   );

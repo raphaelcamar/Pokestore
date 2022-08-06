@@ -25,9 +25,9 @@ export const Title = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 1px solid ${props => props.theme.colors.primary};
+  border-bottom: 1px solid ${({ theme }) => theme.main};
   &:nth-child(2) {
-    color: ${props => props.theme.colors.primary};
+    color: ${({ theme }) => theme.main};
   }
 `;
 export const ImgText = styled.div`
@@ -59,10 +59,10 @@ export const Error = styled.span`
   width: 50%;
   padding: 50px;
   margin: 0 auto;
-  color: ${props => props.theme.colors.primary};
-  background-color: ${props => props.theme.colors.third};
+  color: ${({ theme }) => theme.main};
+  background-color: ${({ theme }) => theme.light};
   border-radius: 5px;
-  border: 1px solid ${props => props.theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.main};
   text-align: center;
   font-size: 1.25rem;
 `;

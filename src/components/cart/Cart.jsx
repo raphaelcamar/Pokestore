@@ -8,14 +8,15 @@ import ModalItem from '../modal/Modal';
 import Button from '../button/Button';
 import { bindActionCreators } from 'redux';
 import { ThemesContext } from '../../contexts/ThemeContext';
+import { useThemeContext } from '@/contexts/theme';
 
 const Cart = ({ buyPokemons, cart, clear }) => {
   const [modal, setModal] = useState(false);
   const cartRef = useRef();
-  const { actualTheme } = useContext(ThemesContext);
+  const { currentTheme } = useThemeContext();
 
   const clearCart = () => {
-    clear(actualTheme.title);
+    clear(currentTheme.title);
   };
 
   if (modal) {

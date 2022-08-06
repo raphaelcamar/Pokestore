@@ -29,7 +29,7 @@ export const Container = styled.div`
       color: #c5c5c5;
     }
     &:focus {
-      border: 1px solid ${props => props.theme.colors.primary};
+      border: 1px solid ${({ theme }) => theme.main};
       transition: border 0.2s;
     }
     &:hover {
@@ -45,7 +45,7 @@ export const Container = styled.div`
     box-shadow: var(--box-shadow);
     margin-bottom: 2.08rem;
     border-radius: 0 5px 5px 0;
-    background: ${props => props.theme.colors.primary};
+    background: ${({ theme }) => theme.main};
     color: white;
 
     &:hover {

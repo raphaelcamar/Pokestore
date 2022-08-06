@@ -24,7 +24,7 @@ export const HeaderCard = styled.div`
     justify-content: flex-end;
     margin: 0;
     font-size: 1.3rem;
-    color: ${props => props.theme.colors.secundaryColorFont};
+    color: ${({ theme }) => theme.font.secondary};
   }
 `;
 
@@ -40,7 +40,7 @@ export const NamePokemon = styled.h1`
   margin: 0;
   font-size: 1.5rem;
   text-transform: capitalize;
-  color: ${props => props.theme.colors.secundaryColorFont};
+  color: ${({ theme }) => theme.font.secondary};
 `;
 
 export const Padding = styled.div`
@@ -48,7 +48,7 @@ export const Padding = styled.div`
 `;
 
 export const WrapperPhoto = styled.div`
-  background-color: ${props => props.theme.colors.third};
+  background-color: ${({ theme }) => theme.light};
   border-radius: 50%;
   width: 120px;
   height: 120px;

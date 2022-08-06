@@ -17,7 +17,7 @@ export const Container = styled.div`
   &::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: ${props => props.theme.colors.primary};
+    background: ${({ theme }) => theme.main};
   }
 `;
 
@@ -39,7 +39,7 @@ export const HeaderCart = styled.div`
 `;
 
 export const Span = styled.span`
-  color: ${props => props.theme.colors.colorFont};
+  color: ${({ theme }) => theme.font.primary};
   &:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -53,11 +53,11 @@ export const Spacing = styled.span`
 
 export const Message = styled.div`
   width: 100%;
-  border: 1px solid ${props => props.theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.main};
   padding: 20px 0;
   text-align: center;
-  color: ${props => props.theme.colors.primary};
-  background-color: ${props => props.theme.colors.third};
+  color: ${({ theme }) => theme.main};
+  background-color: ${({ theme }) => theme.light};
   border-radius: 5px;
 `;
 
@@ -67,7 +67,7 @@ export const TotalPrice = styled.div`
   justify-content: space-between;
   font-weight: bold;
   font-size: 1.25rem;
-  color: ${props => props.theme.colors.secundaryColorFont};
+  color: ${({ theme }) => theme.font.secondary};
   span {
     font-weight: 700;
   }

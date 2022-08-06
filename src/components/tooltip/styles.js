@@ -20,7 +20,7 @@ export const Container = styled.div`
   }
   svg {
     margin-left: 8px;
-    fill: ${props => props.theme.colors.secundary};
+    fill: ${({ theme }) => theme.secondary};
   }
   &:hover {
     transition: width 0.2s ease-in;

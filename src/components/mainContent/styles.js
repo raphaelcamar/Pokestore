@@ -15,7 +15,7 @@ export const Container = styled.div`
   .btn-load > button {
     padding: 12px 24px;
     border-radius: 8px;
-    background: ${props => props.theme.colors.primary};
+    background: ${({ theme }) => theme.main};
     border: 0;
     display: flex;
     justify-content: center;
@@ -29,11 +29,11 @@ export const Container = styled.div`
 
   .error {
     width: 100%;
-    border: 1px solid ${props => props.theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.main};
     padding: 20px 0;
     text-align: center;
-    color: ${props => props.theme.colors.primary};
-    background-color: ${props => props.theme.colors.third};
+    color: ${({ theme }) => theme.main};
+    background-color: ${({ theme }) => theme.light};
     border-radius: 5px;
     margin-bottom: 32px;
   }

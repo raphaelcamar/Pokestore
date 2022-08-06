@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const ButtonStyle = styled.button`
   outline: none;
-  border: 1px solid ${props => props.theme.colors.secundary};
+  border: 1px solid ${({ theme }) => theme.secondary};
   width: 100%;
   padding: 10px;
   font-weight: 500;
   font-size: 1.25rem;
-  color: ${props => props.theme.colors.primary};
+  color: ${({ theme }) => theme.main};
   margin: 8px 0 !important;
   border-radius: 10px;
   background: #fff;

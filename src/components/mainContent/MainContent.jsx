@@ -6,14 +6,15 @@ import Card from '../card/Card';
 import usePokemonTypeSearch from '../../customHooks/usePokemonTypeSearch';
 import usePokemonsFetch from '../../customHooks/usePokemonsFetch';
 import { ThemesContext } from '../../contexts/ThemeContext';
+import { useThemeContext } from '@/contexts/theme';
 
 const MainContent = () => {
-  const { actualTheme } = useContext(ThemesContext);
-  const { error, urlPokemons } = usePokemonTypeSearch(actualTheme.title);
+  const { currentTheme } = useThemeContext();
+  const { error, urlPokemons } = usePokemonTypeSearch(currentTheme.title);
 
   const { filter, statePokemons, loadingPokemons, pokemonsToFetch, fetchNewPage } = usePokemonsFetch(
     urlPokemons,
-    actualTheme.title
+    currentTheme.title
   );
 
   const [paginate, setPaginate] = useState({ initial: 0, offset: 12 });
@@ -39,7 +40,7 @@ const MainContent = () => {
     if (loadingPokemons) {
       return (
         <WrapperLoader>
-          <Loader type="Puff" color={actualTheme.colors.primary} height={100} width={100} />
+          <Loader type="Puff" color={currentTheme.main} height={100} width={100} />
         </WrapperLoader>
       );
     }

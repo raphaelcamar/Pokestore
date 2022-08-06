@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 50%;
   margin: 5% auto;
   background: #fff;
-  border: 1px solid ${props => props.theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.main};
   border-radius: 25px;
 `;
 
@@ -17,12 +17,12 @@ export const Spacing = styled.div`
 
 export const Button = styled.div`
   outline: none;
-  border: 1px solid ${props => props.theme.colors.secundary};
+  border: 1px solid ${({ theme }) => theme.light};
   width: 100%;
   padding: 10px;
   font-weight: 500;
   font-size: 1.25rem;
-  color: ${props => props.theme.colors.primary};
+  color: ${({ theme }) => theme.main};
   margin: 16px 0 !important;
   border-radius: 10px;
   background: #fff;

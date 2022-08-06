@@ -11,13 +11,3 @@ export const BugTheme: Theme.Base = {
     secondary: '#616161',
   },
 };
-
-// title: 'bug',
-// colors: {
-//   primary: '#009A1F',
-//   secundary: '#328E44', -- dark
-//   third: '#9DB2A1',
-//   colorFont: '#CBCBCB',
-//   secundaryColorFont: '#616161',
-//   backgound: '#F7F7F7',
-// },

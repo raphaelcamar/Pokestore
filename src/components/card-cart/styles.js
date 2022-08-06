@@ -48,7 +48,7 @@ export const SpanQtd = styled.span`
     color: #c5c5c5;
   }
   input:focus {
-    border: 1px solid ${props => props.theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.main};
   }
   input:hover {
     outline: none;

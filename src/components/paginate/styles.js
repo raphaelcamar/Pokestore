@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: space-between;
 
   button {
-    background: ${props => props.theme.colors.primary};
+    background: ${({ theme }) => theme.main};
     width: 15%;
     padding: 16px;
     border-radius: 12px;

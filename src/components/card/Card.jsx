@@ -7,12 +7,13 @@ import { addPokemon } from '../../store/cart/actions/cartActions';
 import { Container, HeaderCard, StatsRow, NamePokemon, Padding, WrapperPhoto, WrapperButton } from './styles';
 import Button from '../button/Button';
 import { ThemesContext } from '../../contexts/ThemeContext';
+import { useThemeContext } from '@/contexts/theme';
 
 const Card = props => {
   const { item } = props;
   const { name, photo, stats, price } = item;
 
-  const { actualTheme } = useContext(ThemesContext);
+  const { currentTheme } = useThemeContext();
 
   const drawStats = () =>
     stats.map(item => {
@@ -36,7 +37,7 @@ const Card = props => {
   return (
     <Container>
       <HeaderCard>
-        {catchSVG(actualTheme.title)}
+        {catchSVG(currentTheme.title)}
         <h1>R$: {price}</h1>
       </HeaderCard>
       <WrapperPhoto>

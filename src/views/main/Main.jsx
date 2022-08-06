@@ -7,14 +7,15 @@ import { fetchLinkPokemons } from '../../store/pokemons/actions/pokemonActions';
 import { connect } from 'react-redux';
 import MainContent from '../../components/mainContent/MainContent';
 import { ThemesContext } from '../../contexts/ThemeContext';
+import { useThemeContext } from '@/contexts/theme';
 
 const Main = props => {
   const { showCart } = props;
-  const { actualTheme } = useContext(ThemesContext);
+  const { currentTheme } = useThemeContext();
 
   return (
     <Container>
-      <MainContent theme={actualTheme.title} />
+      <MainContent theme={currentTheme.title} />
       <CartBody className={showCart ? 'show' : 'hide'}>
         <Cart />
       </CartBody>

@@ -2,8 +2,7 @@ import { createContext, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BugTheme, FireTheme, PoisonTheme, WaterTheme, GlobalStyle, AvailableThemes } from '@/contexts/themes';
 import { Theme } from '@/styles/styled';
-
-export const ThemesContext = createContext({});
+import { ThemeContext } from './context';
 
 export const StyledThemeProvider: React.FC = ({ children }) => {
   const themes = {
@@ -26,17 +25,16 @@ export const StyledThemeProvider: React.FC = ({ children }) => {
   const returnThemes = () => themes;
 
   return (
-    <ThemeProvider theme={actualTheme}>
+    <ThemeProvider theme={themes.fire}>
       <GlobalStyle />
-      <ThemesContext.Provider
+      <ThemeContext.Provider
         value={{
           changeTheme,
-          returnThemes,
-          actualTheme,
+          currentTheme: actualTheme,
         }}
       >
         {children}
-      </ThemesContext.Provider>
+      </ThemeContext.Provider>
     </ThemeProvider>
   );
 };

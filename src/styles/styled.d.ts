@@ -21,3 +21,7 @@ export namespace Theme {
     title: string;
   };
 }
+
+declare module 'styled-components' {
+  export type DefaultTheme = Theme.Base;
+}
