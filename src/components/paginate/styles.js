@@ -5,21 +5,21 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
 
-  button{
+  button {
     background: ${props => props.theme.colors.primary};
     width: 15%;
     padding: 16px;
     border-radius: 12px;
     color: white;
     border: none;
-    &:hover{
+    &:hover {
       cursor: pointer;
       /* transform: scale(1.1);
       transition: transform .2s ease; */
     }
 
-    .itemIndex{
+    .itemIndex {
       background: black;
     }
   }
-`
+`;

@@ -1,66 +1,63 @@
 import styled from 'styled-components';
 
-
 export const ContainerSelected = styled.div`
-   .container-close{   
+  .container-close {
     border-radius: 25px;
     transition: 0.4s;
-}
-.container{
-    background-color: #FFF;
-    padding:  8px 20px;
+  }
+  .container {
+    background-color: #fff;
+    padding: 8px 20px;
     color: black;
     cursor: pointer;
     width: 170px;
-}
-.container-open{
+  }
+  .container-open {
     border-radius: 25px 25px 0 0;
     animation: slideBar 0.1s;
     cursor: pointer;
-}
+  }
 
-.container:hover{
+  .container:hover {
     background: #c2c2c2;
     cursor: pointer;
-}
-.description{
+  }
+  .description {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-svg{
+  }
+  svg {
     width: 25px;
     height: 25px;
-    margin-right : 8px;
-}
-.options{
+    margin-right: 8px;
+  }
+  .options {
     border-radius: 0 0 25px 25px;
-    transform : scale(0);
-    background: #FFF;
+    transform: scale(0);
+    background: #fff;
     position: absolute;
-    padding:  8px 20px;
+    padding: 8px 20px;
     color: black;
     transition: transform ease 0.1s;
     width: 170px;
-    box-shadow : var(--box-shadow);
-}
-.option span{
+    box-shadow: var(--box-shadow);
+  }
+  .option span {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding: 4px 0;
-}
-.option:hover{
+  }
+  .option:hover {
     background: #e9e9e9;
     cursor: pointer;
-}
-.open{
+  }
+  .open {
     display: block;
-    transform : scale(1);
+    transform: scale(1);
     transform-origin: top;
     transition: height ease 0.2s;
     transition: transform ease 0.1s;
-}
-
-
-`
+  }
+`;

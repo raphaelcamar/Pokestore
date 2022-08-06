@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
-import cartReducer from './cart/index'
+import cartReducer from './cart/index';
 import pokemonReducer from './pokemons';
-
 
 const rootReducer = combineReducers({
   cart: cartReducer,
