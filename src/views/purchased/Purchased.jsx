@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { ThemesContext } from '../../contexts/ThemeContext';
+import React from 'react';
 import { Container, WrapperContainer, Title, ImgText, CardPokemons, Total, Error } from './styles';
 import { makeid } from '../../helpers/Helpers';
 import { useThemeContext } from '@/contexts/theme';

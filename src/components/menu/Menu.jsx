@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useThemeContext } from '@/contexts/theme';
-import { ThemesContext } from '../../contexts/ThemeContext';
 import { catchSVG } from '../../helpers/Helpers';
 import { changeContext } from '../../store/cart/actions/cartActions';
 import { ContainerSelected } from './styles';
@@ -17,7 +16,8 @@ const Menu = props => {
 
   const generate = () => (
     <ContainerSelected>
-      <div
+      <button
+        type="button"
         className={`container container-${bool ? 'open' : 'close'}`}
         onClick={() => {
           openTab();
@@ -27,7 +27,7 @@ const Menu = props => {
           {catchSVG(currentTheme.title)}
           <span>{`${currentTheme.title} store`}</span>
         </div>
-      </div>
+      </button>
       <div className={`options ${bool ? 'open' : 'close'}`}>
         {/* {vectorThemes.map((theme, i) => {
           if (i === 0) return '';

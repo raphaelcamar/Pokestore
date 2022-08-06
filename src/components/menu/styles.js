@@ -6,6 +6,7 @@ export const ContainerSelected = styled.div`
     transition: 0.4s;
   }
   .container {
+    all: unset;
     background-color: #fff;
     padding: 8px 20px;
     color: black;

@@ -1,13 +1,14 @@
-import React, { useContext, useRef, useState } from 'react';
+/* eslint-disable consistent-return */
+/* eslint-disable @typescript-eslint/no-shadow */
+import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import CardCart from '../card-cart/CardCart';
 import { clear, buyPokemons } from '../../store/cart/actions/cartActions';
 import { Container, HeaderCart, Span, Spacing, Message, TotalPrice, ModalBuy } from './styles';
 import { getDate, getHours, calcCashBack, catchSVG } from '../../helpers/Helpers';
 import ModalItem from '../modal/Modal';
-import Button from '../button/Button';
-import { bindActionCreators } from 'redux';
-import { ThemesContext } from '../../contexts/ThemeContext';
+import { Button } from '@/components/atoms';
 import { useThemeContext } from '@/contexts/theme';
 
 const Cart = ({ buyPokemons, cart, clear }) => {
@@ -63,25 +64,19 @@ const Cart = ({ buyPokemons, cart, clear }) => {
   const renderCart = () => {
     if (!cart || cart.length === 0) {
       return <Message>Você não possui itens no seu carrinho!</Message>;
-    } else {
-      return (
-        <>
-          {cart.map(pokemon => <CardCart pokemon={pokemon} key={pokemon.idPokemon}/>)}
-          })}
-          <TotalPrice>
-            <span>Total</span>
-            <span>R$ {calcTotalPrice()}</span>
-          </TotalPrice>
-          <Button
-            event={() => {
-              buy();
-            }}
-          >
-            Comprar
-          </Button>
-        </>
-      );
     }
+    return (
+      <>
+        {cart.map(pokemon => (
+          <CardCart pokemon={pokemon} key={pokemon.idPokemon} />
+        ))}
+        <TotalPrice>
+          <span>Total</span>
+          <span>R$ {calcTotalPrice()}</span>
+        </TotalPrice>
+        <Button onClick={() => buy()}>Comprar</Button>
+      </>
+    );
   };
 
   return (

@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Container, CartBody } from './styles';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import Cart from '../../components/cart/Cart';
-import { bindActionCreators } from 'redux';
 import { fetchLinkPokemons } from '../../store/pokemons/actions/pokemonActions';
-import { connect } from 'react-redux';
 import MainContent from '../../components/mainContent/MainContent';
-import { ThemesContext } from '../../contexts/ThemeContext';
 import { useThemeContext } from '@/contexts/theme';
 
 const Main = props => {

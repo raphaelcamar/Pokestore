@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react';
+/* eslint-disable consistent-return */
+import React, { useState } from 'react';
 import Loader from 'react-loader-spinner';
+import { makeid } from '@/helpers/Helpers';
 import { Container, Cards, WrapperLoader } from './styles';
 import Card from '../card/Card';
 import usePokemonTypeSearch from '../../customHooks/usePokemonTypeSearch';
 import usePokemonsFetch from '../../customHooks/usePokemonsFetch';
-import { ThemesContext } from '../../contexts/ThemeContext';
 import { useThemeContext } from '@/contexts/theme';
 import { Input } from '@/components/atoms';
 
@@ -33,7 +34,7 @@ const MainContent = () => {
       return <div className="error">Aconteceu alguma coisa. Tente novamente mais tarde</div>;
     }
 
-    return statePokemons.map((pokemon, i) => <Card key={i} item={pokemon} />);
+    return statePokemons.map((pokemon, i) => <Card key={makeid()} item={pokemon} />);
   };
 
   const renderUpdate = () => {
@@ -60,7 +61,11 @@ const MainContent = () => {
   const renderButtonUpdate = () => {
     const { offset } = paginate;
     if (offset - 12 < pokemonsToFetch.length) {
-      return <button onClick={fetchMore}>Atualizar</button>;
+      return (
+        <button type="button" onClick={fetchMore}>
+          Atualizar
+        </button>
+      );
     }
   };
 

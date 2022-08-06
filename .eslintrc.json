@@ -60,6 +60,8 @@
 		"no-underscore-dangle": "off",
 		"@typescript-eslint/no-namespace": "off",
 		"import/export": "off",
+		"react/no-unescaped-entities": "off",
+		"@typescript-eslint/no-empty-interface": "off",
 		"lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }]
     }
 }

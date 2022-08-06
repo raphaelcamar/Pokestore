@@ -1,3 +1,7 @@
+// TODO
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable camelcase */
+/* eslint-disable @typescript-eslint/no-shadow */
 import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -5,9 +9,8 @@ import { catchSVG, translate } from '../../helpers/Helpers';
 import Status from '../status/Status';
 import { addPokemon } from '../../store/cart/actions/cartActions';
 import { Container, HeaderCard, StatsRow, NamePokemon, Padding, WrapperPhoto, WrapperButton } from './styles';
-import Button from '../button/Button';
-import { ThemesContext } from '../../contexts/ThemeContext';
 import { useThemeContext } from '@/contexts/theme';
+import { Button } from '@/components/atoms';
 
 const Card = props => {
   const { item } = props;
@@ -56,7 +59,7 @@ const Card = props => {
         </StatsRow>
       </Padding>
       <WrapperButton>
-        <Button event={add}>Adicionar ao carrinho</Button>
+        <Button onClick={() => add()}>Adicionar ao carrinho</Button>
       </WrapperButton>
     </Container>
   );

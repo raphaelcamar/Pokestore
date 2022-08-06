@@ -19,7 +19,6 @@ const usePokemonsFetch = (pokemons, type) => {
       setStatePokemons(objPokemon);
       setLoadingPokemons(false);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pokemons]);
 
   const fetchNewPage = (initial, offset) => {

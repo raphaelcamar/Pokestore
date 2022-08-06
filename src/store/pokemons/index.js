@@ -1,3 +1,6 @@
+/* eslint-disable default-param-last */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable no-case-declarations */
 /* eslint-disable no-fallthrough */
 const INITIAL_STATE = { urlPokemons: [], pokemons: [], pagination: [0, 0] };
 

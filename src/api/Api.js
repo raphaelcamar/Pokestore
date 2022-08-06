@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-await-in-loop */
 import axios from 'axios';
 
 const URL = 'https://pokeapi.co/api/v2';
