@@ -23,12 +23,10 @@
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
     "noEmit": true,
-		"paths": {
-			"@/*": ["src/*"]
-		}
   },
   "include": [
     "src",
     "tests"
-  ]
+  ],
+  "extends": "./tsconfig/paths.json"
 }

@@ -9,7 +9,7 @@ import { AppDiv, Spacing } from './styles';
 import Purchased from './purchased/Purchased';
 import Tooltip from '../components/tooltip/Tooltip';
 import Main from './main/Main';
-import { ThemesProvider } from '../contexts/ThemeContext';
+import { ThemesProvider } from '@/contexts/ThemeContext';
 
 const App = props => {
   const [showCart, setShowCart] = useState(false);
