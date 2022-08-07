@@ -7,9 +7,9 @@ import CardCart from '../card-cart/CardCart';
 import { clear, buyPokemons } from '../../store/cart/actions/cartActions';
 import { Container, HeaderCart, Span, Spacing, Message, TotalPrice, ModalBuy } from './styles';
 import { getDate, getHours, calcCashBack } from '../../helpers/Helpers';
-import ModalItem from '../modal/Modal';
 import { Button, Icon } from '@/components/atoms';
 import { useThemeContext } from '@/contexts/theme';
+import { ModalConfirmationBuy } from '@/components/molecules';
 
 const Cart = ({ buyPokemons, cart, clear }) => {
   const [modal, setModal] = useState(false);
@@ -83,7 +83,7 @@ const Cart = ({ buyPokemons, cart, clear }) => {
     <Container ref={cartRef}>
       {modal && (
         <ModalBuy>
-          <ModalItem click={handleClose} />
+          <ModalConfirmationBuy click={handleClose} />
         </ModalBuy>
       )}
       <Spacing>

@@ -17,12 +17,6 @@ const Card = props => {
 
   const { currentTheme } = useThemeContext();
 
-  const filterIcon = name => {
-    const icons = ['hp', 'attack', 'defense', 'speed'];
-    const hasIcon = icons.find(value => value === name);
-    return hasIcon || null;
-  };
-
   const drawStats = () =>
     stats.map(item => {
       const { base_stat, stat } = item;
