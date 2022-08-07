@@ -1,5 +1,4 @@
 /* eslint-disable no-plusplus */
-import { hp, attack, defense, speed, fire, water, cart, poison, bug } from '../assets/svg';
 
 const randomPrice = () => (Math.random() * 500).toFixed(2);
 

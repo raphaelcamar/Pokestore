@@ -10,12 +10,12 @@ export const Container = styled.div`
   align-items: center;
   z-index: 2;
   width: 100%;
-
   a {
     font-weight: 300;
     color: #fff;
     text-decoration: none;
   }
+
   a:hover {
     text-decoration: underline;
   }

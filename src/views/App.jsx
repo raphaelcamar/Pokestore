@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import Header from '../components/header/Header';
+import { Header } from '@/components/organisms';
 import { changeContext } from '../store/cart/actions/cartActions';
 import { AppDiv, Spacing } from './styles';
 import Purchased from './purchased/Purchased';

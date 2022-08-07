@@ -1,9 +1,8 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { MenuHeader } from '@/components/molecules';
 import { Container } from './styles';
-import Menu from '../menu/Menu';
 
-const Header = () => {
+export const Header: React.FC = () => {
   const path = useLocation().pathname;
 
   const optionLink = () => {
@@ -16,11 +15,9 @@ const Header = () => {
   return (
     <Container>
       <div>
-        <Menu />
+        <MenuHeader />
       </div>
       <span>{optionLink()}</span>
     </Container>
   );
 };
-
-export default Header;
