@@ -2,11 +2,10 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/no-shadow */
-import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { translate } from '../../helpers/Helpers';
-import Status from '../status/Status';
+import { Status } from '@/components/molecules/status';
 import { addPokemon } from '../../store/cart/actions/cartActions';
 import { Container, HeaderCard, StatsRow, NamePokemon, Padding, WrapperPhoto, WrapperButton } from './styles';
 import { useThemeContext } from '@/contexts/theme';
