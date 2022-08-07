@@ -18,10 +18,12 @@ export const Container = styled.div`
   @media (min-width: 1000px) {
     display: none;
   }
+
   svg {
     margin-left: 8px;
     fill: ${({ theme }) => theme.secondary};
   }
+
   &:hover {
     transition: width 0.2s ease-in;
     width: 100px;

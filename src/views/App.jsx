@@ -6,9 +6,9 @@ import { Header } from '@/components/organisms';
 import { changeContext } from '../store/cart/actions/cartActions';
 import { AppDiv, Spacing } from './styles';
 import Purchased from './purchased/Purchased';
-import Tooltip from '../components/tooltip/Tooltip';
 import Main from './main/Main';
 import { StyledThemeProvider } from '@/contexts/theme';
+import { CartCounter } from '@/components/molecules/CartCounter';
 
 const App = props => {
   const [showCart, setShowCart] = useState(false);
@@ -21,7 +21,7 @@ const App = props => {
     <StyledThemeProvider>
       <AppDiv>
         <Router>
-          <Tooltip click={show} />
+          <CartCounter click={show} />
           <Header />
           <Spacing>
             <Switch>
