@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { createObjectPokemon } from '../helpers/Helpers';
-import { getPokemons } from '../api/Api';
+import { getPokemons } from '@/api/api';
 
 const usePokemonsFetch = (pokemons, type) => {
   const [statePokemons, setStatePokemons] = useState([]);

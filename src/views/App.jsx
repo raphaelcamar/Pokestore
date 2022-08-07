@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { Header } from '@/components/organisms';
-import { changeContext } from '../store/cart/actions/cartActions';
+import { switchStore } from '@/store/cart/actions';
 import { AppDiv, Spacing } from './styles';
 import Purchased from './purchased/Purchased';
 import Main from './main/Main';
@@ -40,6 +40,6 @@ const App = props => {
 };
 
 const mapStateToProps = state => ({ store: state });
-const mapDispatchToProps = dispatch => bindActionCreators({ changeContext }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ switchStore }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,4 +1,4 @@
-import { fetchPokemonType, getPokemons } from '../../../api/Api';
+import { fetchPokemonType, getPokemons } from '../../../api/api';
 import { createObjectPokemon } from '../../../helpers/Helpers';
 
 export const fetchLinkPokemons = async type => {

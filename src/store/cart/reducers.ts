@@ -1,3 +1,6 @@
+import { ActionTypes } from './types';
+/* eslint-disable consistent-return */
+/* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable default-param-last */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-param-reassign */
@@ -5,12 +8,12 @@
 const { title } = JSON.parse(sessionStorage.getItem('@theme')) || 'fire';
 const INITIAL_STATE = JSON.parse(sessionStorage.getItem(`@context-store-${title}`)) || [];
 
-export default function cartReducer(state = INITIAL_STATE, action) {
+export function cartReducer(state = INITIAL_STATE, action): any {
   const { type } = action;
 
   switch (type) {
     case 'ADD_POKEMON_CART':
-      const { pokemon } = action.payload;
+      const pokemon = action.payload;
 
       let newContext = [];
 
@@ -59,7 +62,7 @@ export default function cartReducer(state = INITIAL_STATE, action) {
       const { purchasedPokemons } = action.payload;
       const storeType = purchasedPokemons.pokemons[0].type;
       savePurchasedItems(purchasedPokemons, storeType);
-
+      break;
     // eslint-disable-next-line no-fallthrough
     default:
       return state;

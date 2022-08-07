@@ -4,14 +4,14 @@ import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import CardCart from '../card-cart/CardCart';
-import { clear, buyPokemons } from '../../store/cart/actions/cartActions';
+import { buy, clear } from '@/store/cart/actions';
 import { Container, HeaderCart, Span, Spacing, Message, TotalPrice, ModalBuy } from './styles';
 import { getDate, getHours, calcCashBack } from '../../helpers/Helpers';
 import { Button, Icon } from '@/components/atoms';
 import { useThemeContext } from '@/contexts/theme';
 import { ModalConfirmationBuy } from '@/components/molecules';
 
-const Cart = ({ buyPokemons, cart, clear }) => {
+const Cart = ({ buy, cart, clear }) => {
   const [modal, setModal] = useState(false);
   const cartRef = useRef();
   const { currentTheme } = useThemeContext();
@@ -34,9 +34,9 @@ const Cart = ({ buyPokemons, cart, clear }) => {
     return total.toFixed(2);
   };
 
-  const buy = () => {
+  const buyPokemons = () => {
     const price = calcTotalPrice();
-    buyPokemons({
+    buy({
       pokemons: [...cart],
       price,
       discount: calcCashBack(price),
@@ -74,7 +74,7 @@ const Cart = ({ buyPokemons, cart, clear }) => {
           <span>Total</span>
           <span>R$ {calcTotalPrice()}</span>
         </TotalPrice>
-        <Button onClick={() => buy()}>Comprar</Button>
+        <Button onClick={() => buyPokemons()}>Comprar</Button>
       </>
     );
   };
@@ -100,6 +100,6 @@ const Cart = ({ buyPokemons, cart, clear }) => {
   );
 };
 const mapStateToProps = state => ({ cart: state.cart });
-const mapDispatchToProps = dispatch => bindActionCreators({ clear, buyPokemons }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ clear, buy }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
