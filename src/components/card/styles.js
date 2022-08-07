@@ -18,7 +18,7 @@ export const HeaderCard = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 16px;
-
+  align-items: center;
   h1 {
     display: flex;
     justify-content: flex-end;

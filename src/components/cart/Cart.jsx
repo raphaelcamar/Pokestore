@@ -6,9 +6,9 @@ import { bindActionCreators } from 'redux';
 import CardCart from '../card-cart/CardCart';
 import { clear, buyPokemons } from '../../store/cart/actions/cartActions';
 import { Container, HeaderCart, Span, Spacing, Message, TotalPrice, ModalBuy } from './styles';
-import { getDate, getHours, calcCashBack, catchSVG } from '../../helpers/Helpers';
+import { getDate, getHours, calcCashBack } from '../../helpers/Helpers';
 import ModalItem from '../modal/Modal';
-import { Button } from '@/components/atoms';
+import { Button, Icon } from '@/components/atoms';
 import { useThemeContext } from '@/contexts/theme';
 
 const Cart = ({ buyPokemons, cart, clear }) => {
@@ -89,7 +89,7 @@ const Cart = ({ buyPokemons, cart, clear }) => {
       <Spacing>
         <HeaderCart>
           <div>
-            {catchSVG('cart')}
+            <Icon icon="cart" />
             <span>Carrinho</span>
           </div>
           {emptyCart()}

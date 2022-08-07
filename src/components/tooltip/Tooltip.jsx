@@ -1,14 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Container } from './styles';
-import { catchSVG } from '../../helpers/Helpers';
-import { useThemeContext } from '@/contexts/theme';
+import { Icon } from '../atoms';
 
 const Tooltip = ({ click }) => {
   const cart = useSelector(state => state);
-  const { currentTheme } = useThemeContext();
-
-  console.log(currentTheme);
 
   return (
     <Container
@@ -17,7 +13,7 @@ const Tooltip = ({ click }) => {
       }}
     >
       <div className="qtd">{cart.cart.length}</div>
-      {catchSVG('cart')}
+      <Icon icon="cart" />
     </Container>
   );
 };

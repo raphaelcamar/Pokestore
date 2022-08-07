@@ -5,18 +5,24 @@
 import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { catchSVG, translate } from '../../helpers/Helpers';
+import { translate } from '../../helpers/Helpers';
 import Status from '../status/Status';
 import { addPokemon } from '../../store/cart/actions/cartActions';
 import { Container, HeaderCard, StatsRow, NamePokemon, Padding, WrapperPhoto, WrapperButton } from './styles';
 import { useThemeContext } from '@/contexts/theme';
-import { Button } from '@/components/atoms';
+import { Button, Icon } from '@/components/atoms';
 
 const Card = props => {
   const { item } = props;
   const { name, photo, stats, price } = item;
 
   const { currentTheme } = useThemeContext();
+
+  const filterIcon = name => {
+    const icons = ['hp', 'attack', 'defense', 'speed'];
+    const hasIcon = icons.find(value => value === name);
+    return hasIcon || null;
+  };
 
   const drawStats = () =>
     stats.map(item => {
@@ -25,7 +31,6 @@ const Card = props => {
       return {
         base_stat,
         name: translate(name),
-        icon: catchSVG(name),
       };
     });
 
@@ -40,7 +45,7 @@ const Card = props => {
   return (
     <Container>
       <HeaderCard>
-        {catchSVG(currentTheme.title)}
+        <Icon icon={currentTheme?.title} />
         <h1>R$: {price}</h1>
       </HeaderCard>
       <WrapperPhoto>
@@ -49,13 +54,13 @@ const Card = props => {
       <NamePokemon>{name}</NamePokemon>
       <Padding>
         <StatsRow>
-          <Status name={health.name} icon={health.icon} value={health.base_stat} />
-          <Status name={attack.name} icon={attack.icon} value={attack.base_stat} />
+          <Status name={health.name} icon="heart" value={health.base_stat} />
+          <Status name={attack.name} icon="sword" value={attack.base_stat} />
         </StatsRow>
 
         <StatsRow>
-          <Status name={defense.name} icon={defense.icon} value={defense.base_stat} />
-          <Status name={speed.name} icon={speed.icon} value={speed.base_stat} />
+          <Status name={defense.name} icon="shield" value={defense.base_stat} />
+          <Status name={speed.name} icon="boot" value={speed.base_stat} />
         </StatsRow>
       </Padding>
       <WrapperButton>

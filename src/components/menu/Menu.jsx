@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useThemeContext } from '@/contexts/theme';
-import { catchSVG } from '../../helpers/Helpers';
 import { changeContext } from '../../store/cart/actions/cartActions';
 import { ContainerSelected } from './styles';
+import { Icon } from '../atoms';
 
 const Menu = props => {
   const [bool, setBool] = useState(false);
@@ -24,7 +24,7 @@ const Menu = props => {
         }}
       >
         <div className="description">
-          {catchSVG(currentTheme.title)}
+          <Icon icon={currentTheme.title} />
           <span>{`${currentTheme.title} store`}</span>
         </div>
       </button>
@@ -42,7 +42,7 @@ const Menu = props => {
               }}
             >
               <span>
-                {catchSVG(theme)}
+                <Icon icon={theme} />
                 {`${theme} store`}
               </span>
             </div>

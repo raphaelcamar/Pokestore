@@ -25,7 +25,7 @@ export const StyledThemeProvider: React.FC = ({ children }) => {
   const returnThemes = () => themes;
 
   return (
-    <ThemeProvider theme={themes.fire}>
+    <ThemeProvider theme={actualTheme}>
       <GlobalStyle />
       <ThemeContext.Provider
         value={{

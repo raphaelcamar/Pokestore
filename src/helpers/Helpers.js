@@ -1,4 +1,7 @@
+/* eslint-disable no-plusplus */
 import { hp, attack, defense, speed, fire, water, cart, poison, bug } from '../assets/svg';
+
+const randomPrice = () => (Math.random() * 500).toFixed(2);
 
 export const createObjectPokemon = (pokemon, type) => {
   const { forms, sprites, stats, id } = pokemon;
@@ -20,22 +23,6 @@ export const createObjectPokemon = (pokemon, type) => {
   return obj;
 };
 
-export const catchSVG = typeSVG => {
-  const svgs = {
-    hp,
-    attack,
-    defense,
-    speed,
-    fire,
-    water,
-    cart,
-    poison,
-    bug,
-  };
-
-  return svgs[typeSVG];
-};
-
 export const translate = attibute => {
   const attrs = {
     attack: 'Ataque',
@@ -47,8 +34,6 @@ export const translate = attibute => {
   return attrs[attibute];
 };
 
-const randomPrice = () => (Math.random() * 500).toFixed(2);
-
 export const getDate = () => {
   const date = new Date();
   const day = date.getDate() < 10 ? `0${date.getDate().toString()}` : date.getDate();
@@ -57,6 +42,7 @@ export const getDate = () => {
 
   return `${day}/${month}/${year}`;
 };
+
 export const getHours = () => {
   const date = new Date();
   const hour = date.getHours();
@@ -64,6 +50,7 @@ export const getHours = () => {
   const second = date.getSeconds();
   return `${hour}:${minute}:${second}`;
 };
+
 export const calcCashBack = price => {
   const valueDiscounted = (price * 0.1).toFixed(2);
   return valueDiscounted;
